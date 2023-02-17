@@ -4,6 +4,7 @@ import swaggerInline from "swagger-inline"
 import OpenAPIParser from "@readme/openapi-parser"
 import { OpenAPIObject } from "openapi3-ts"
 import { Command, Option, OptionValues } from "commander"
+import { combineOAS } from "./utils/combine-oas"
 
 /**
  * Constants
@@ -12,8 +13,6 @@ import { Command, Option, OptionValues } from "commander"
 const medusaPackagePath = path.dirname(
   require.resolve("@medusajs/medusa/package.json")
 )
-
-type ApiType = "store" | "admin"
 
 /**
  * CLI Command declaration
@@ -24,7 +23,7 @@ export const commandDescription =
 
 export const commandOptions: Option[] = [
   new Option("-t, --type <type>", "API type to compile []")
-    .choices(["all", "admin", "store"])
+    .choices(["all", "admin", "store", "combined"])
     .default("all"),
   new Option(
     "-o, --out-dir <outDir>",
@@ -57,9 +56,11 @@ export async function execute(cliParams: OptionValues) {
    */
   const dryRun = !!cliParams.dryRun
   const force = !!cliParams.force
+  const isCombined = cliParams.type === "combined"
 
-  const apiTypesToExport =
-    cliParams.type === "all" ? ["store", "admin"] : [cliParams.type]
+  const apiTypesToExport = ["all", "combined"].includes(cliParams.type)
+    ? ["store", "admin"]
+    : [cliParams.type]
 
   const outDir = path.resolve(cliParams.outDir)
 
@@ -79,12 +80,23 @@ export async function execute(cliParams: OptionValues) {
     await mkdir(outDir, { recursive: true })
   }
 
-  for (const apiType of apiTypesToExport) {
-    console.log(`🟣 Generating OAS - ${apiType}`)
-    const oas = await getOASFromCodebase(apiType as ApiType, additionalPaths)
-    await validateOAS(oas, apiType as ApiType, force)
+  if (isCombined) {
+    console.log(`🟣 Generating OAS - combined`)
+    const adminOAS = await getOASFromCodebase("admin")
+    const storeOAS = await getOASFromCodebase("store", additionalPaths)
+    const oas = await combineOAS(adminOAS, storeOAS)
+    await validateOAS(oas, "combined", force)
     if (!dryRun) {
-      await exportOASToJSON(oas, apiType as ApiType, outDir)
+      await exportOASToJSON(oas, "combined", outDir)
+    }
+  } else {
+    for (const apiType of apiTypesToExport) {
+      console.log(`🟣 Generating OAS - ${apiType}`)
+      const oas = await getOASFromCodebase(apiType as ApiType, additionalPaths)
+      await validateOAS(oas, apiType as ApiType, force)
+      if (!dryRun) {
+        await exportOASToJSON(oas, apiType as ApiType, outDir)
+      }
     }
   }
 }
