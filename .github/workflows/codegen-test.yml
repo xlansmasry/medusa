@@ -1,4 +1,4 @@
-name: OAS Comments Format Validation
+name: OAS Codegen Build Check
 on:
   pull_request:
     paths-ignore:
@@ -6,7 +6,7 @@ on:
       - "www/**"
 
 jobs:
-  docs-test:
+  codegen-test:
     runs-on: ubuntu-latest
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -31,11 +31,10 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/cache-deps
         with:
-          extension: oas
+          extension: codegen
 
       - name: Build Packages
-        run: yarn build
+        run: yarn build --force --no-cache
 
-      - name: Build OAS
-        run: |
-          yarn openapi:generate --dry-run
+      - name: Assert latest codegen build committed
+        run: ./scripts/assert-codegen-build-committed-actions.sh
