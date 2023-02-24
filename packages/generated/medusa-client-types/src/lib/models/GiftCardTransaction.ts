@@ -19,13 +19,13 @@ export interface GiftCardTransaction {
   gift_card_id: string;  /**
    * A gift card object. Available if the relation `gift_card` is expanded.
    */
-  gift_card?: GiftCard | null;  /**
+  gift_card?: GiftCard;  /**
    * The ID of the Order that the Gift Card was used to pay for.
    */
   order_id: string;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The amount that was used from the Gift Card.
    */
   amount: number;  /**

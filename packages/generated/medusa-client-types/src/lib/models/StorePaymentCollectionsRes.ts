@@ -8,7 +8,6 @@ import type { PaymentCollection } from './PaymentCollection';
 export interface StorePaymentCollectionsRes {
   payment_collection: SetRequired<PaymentCollection,
   "region" | "payment_sessions">
-
 };
 
 

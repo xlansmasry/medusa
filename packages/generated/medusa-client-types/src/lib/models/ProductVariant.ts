@@ -24,7 +24,7 @@ export interface ProductVariant {
   product_id: string;  /**
    * A product object. Available if the relation `product` is expanded.
    */
-  product?: Product | null;  /**
+  product?: Product;  /**
    * The Money Amounts defined for the Product Variant. Each Money Amount represents a price in a given currency or a price in a specific Region. Available if the relation `prices` is expanded.
    */
   prices?: Array<MoneyAmount>;  /**

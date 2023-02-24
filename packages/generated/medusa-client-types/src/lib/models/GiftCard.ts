@@ -28,13 +28,13 @@ export interface GiftCard {
   region_id: string;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * The id of the Order that the Gift Card was purchased in.
    */
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * Whether the Gift Card has been disabled. Disabled Gift Cards cannot be applied to carts.
    */
   is_disabled: boolean;  /**

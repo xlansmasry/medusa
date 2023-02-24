@@ -25,19 +25,19 @@ export interface ClaimItem {
   claim_order_id: string;  /**
    * A claim order object. Available if the relation `claim_order` is expanded.
    */
-  claim_order?: ClaimOrder | null;  /**
+  claim_order?: ClaimOrder;  /**
    * The ID of the line item that the claim item refers to.
    */
   item_id: string;  /**
    * Available if the relation `item` is expanded.
    */
-  item?: LineItem | null;  /**
+  item?: LineItem;  /**
    * The ID of the product variant that is claimed.
    */
   variant_id: string;  /**
    * A variant object. Available if the relation `variant` is expanded.
    */
-  variant?: ProductVariant | null;  /**
+  variant?: ProductVariant;  /**
    * The reason for the claim
    */
   reason: 'missing_item' | 'wrong_item' | 'production_failure' | 'other';  /**

@@ -27,7 +27,7 @@ export interface LineItemTaxLine {
   item_id: string;  /**
    * Available if the relation `item` is expanded.
    */
-  item?: LineItem | null;  /**
+  item?: LineItem;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

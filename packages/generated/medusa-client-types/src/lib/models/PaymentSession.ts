@@ -18,7 +18,7 @@ export interface PaymentSession {
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The id of the Payment Provider that is responsible for the Payment Session
    */
   provider_id: string;  /**

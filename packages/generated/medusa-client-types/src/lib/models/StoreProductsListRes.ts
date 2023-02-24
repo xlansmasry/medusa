@@ -9,9 +9,9 @@ import type { ProductOption } from './ProductOption';
 import type { ProductVariant } from './ProductVariant';
 
 export interface StoreProductsListRes {
-  products: Array<SetRequired<PricedProduct,
+  products: Array<Omit<SetRequired<PricedProduct,
   "variants" | "options" | "images" | "tags" | "collection" | "type">
-  & {
+  , "variants" | "options">& {
     variants: Array<SetRequired<PricedVariant, "prices" | "options">>
     options: Array<SetRequired<ProductOption, "values">>
   }>

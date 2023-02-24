@@ -25,25 +25,25 @@ export interface LineItem {
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The ID of the Order that the Line Item belongs to.
    */
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The id of the Swap that the Line Item belongs to.
    */
   swap_id: string | null;  /**
    * A swap object. Available if the relation `swap` is expanded.
    */
-  swap?: Swap | null;  /**
+  swap?: Swap;  /**
    * The id of the Claim that the Line Item belongs to.
    */
   claim_order_id: string | null;  /**
    * A claim order object. Available if the relation `claim_order` is expanded.
    */
-  claim_order?: ClaimOrder | null;  /**
+  claim_order?: ClaimOrder;  /**
    * Available if the relation `tax_lines` is expanded.
    */
   tax_lines?: Array<LineItemTaxLine>;  /**
@@ -58,7 +58,7 @@ export interface LineItem {
   order_edit_id: string | null;  /**
    * The order edit joined. Available if the relation `order_edit` is expanded.
    */
-  order_edit?: OrderEdit | null;  /**
+  order_edit?: OrderEdit;  /**
    * The title of the Line Item, this should be easily identifiable by the Customer.
    */
   title: string;  /**
@@ -91,7 +91,7 @@ export interface LineItem {
   variant_id: string | null;  /**
    * A product variant object. The Product Variant contained in the Line Item. Available if the relation `variant` is expanded.
    */
-  variant?: ProductVariant | null;  /**
+  variant?: ProductVariant;  /**
    * The quantity of the content in the Line Item.
    */
   quantity: number;  /**

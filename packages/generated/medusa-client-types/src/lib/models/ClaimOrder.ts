@@ -39,16 +39,16 @@ export interface ClaimOrder {
   order_id: string;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * A return object. Holds information about the return if the claim is to be returned. Available if the relation 'return_order' is expanded
    */
-  return_order?: Return | null;  /**
+  return_order?: Return;  /**
    * The ID of the address that the new items should be shipped to
    */
   shipping_address_id: string | null;  /**
    * Available if the relation `shipping_address` is expanded.
    */
-  shipping_address?: Address | null;  /**
+  shipping_address?: Address;  /**
    * The shipping methods that the claim order will be shipped with.
    */
   shipping_methods?: Array<ShippingMethod>;  /**

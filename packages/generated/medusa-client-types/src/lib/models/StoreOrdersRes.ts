@@ -9,12 +9,12 @@ import type { LineItem } from './LineItem';
 import type { Order } from './Order';
 
 export interface StoreOrdersRes {
-  order: SetRequired<Order,
-  "shipping_address" | "fulfillments" | "items" | "shipping_methods" | "discounts" | "customer" | "payments" | "region">
-  & {
+  order: Omit<SetRequired<Order,
+  "customer" | "discounts" | "fulfillments" | "items" | "payments" | "region" | "shipping_address" | "shipping_methods" | "discount_total" | "gift_card_tax_total" | "gift_card_total" | "paid_total" | "refundable_amount" | "refunded_total" | "shipping_total" | "subtotal" | "tax_total" | "total">
+  , "discounts" | "fulfillments" | "items">& {
+    discounts: Array<SetRequired<Discount, "rule">>
     fulfillments: Array<SetRequired<Fulfillment, "tracking_links">>
     items: Array<SetRequired<LineItem, "variant">>
-    discounts: Array<SetRequired<Discount, "rule">>
   }
 };
 

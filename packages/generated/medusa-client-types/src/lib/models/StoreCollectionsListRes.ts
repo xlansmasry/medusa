@@ -7,8 +7,7 @@ import type { ProductCollection } from './ProductCollection';
 
 export interface StoreCollectionsListRes {
   collections: Array<SetRequired<ProductCollection,
-  "products">
-  >
+  "products">>
   /**
    * The total number of items available
    */

@@ -24,7 +24,7 @@ export interface BatchJob {
   created_by: string | null;  /**
    * A user object. Available if the relation `created_by_user` is expanded.
    */
-  created_by_user?: User | null;  /**
+  created_by_user?: User;  /**
    * The context of the batch job, the type of the batch job determines what the context should contain.
    */
   context: Record<string, any> | null;  /**

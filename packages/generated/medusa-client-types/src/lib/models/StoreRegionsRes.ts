@@ -8,7 +8,6 @@ import type { Region } from './Region';
 export interface StoreRegionsRes {
   region: SetRequired<Region,
   "countries" | "payment_providers" | "fulfillment_providers">
-
 };
 
 

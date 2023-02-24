@@ -27,7 +27,7 @@ export interface Note {
   author_id: string | null;  /**
    * Available if the relation `author` is expanded.
    */
-  author?: User | null;  /**
+  author?: User;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

@@ -48,13 +48,13 @@ export interface Order {
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The ID of the customer associated with the order
    */
   customer_id: string;  /**
    * A customer object. Available if the relation `customer` is expanded.
    */
-  customer?: Customer | null;  /**
+  customer?: Customer;  /**
    * The email associated with the order
    */
   email: string;  /**
@@ -63,25 +63,25 @@ export interface Order {
   billing_address_id: string | null;  /**
    * Available if the relation `billing_address` is expanded.
    */
-  billing_address?: Address | null;  /**
+  billing_address?: Address;  /**
    * The ID of the shipping address associated with the order
    */
   shipping_address_id: string | null;  /**
    * Available if the relation `shipping_address` is expanded.
    */
-  shipping_address?: Address | null;  /**
+  shipping_address?: Address;  /**
    * The region's ID
    */
   region_id: string;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * The 3 character currency code that is used in the order
    */
   currency_code: string;  /**
    * Available if the relation `currency` is expanded.
    */
-  currency?: Currency | null;  /**
+  currency?: Currency;  /**
    * The order's tax rate
    */
   tax_rate: number | null;  /**
@@ -117,7 +117,7 @@ export interface Order {
   draft_order_id: string | null;  /**
    * A draft order object. Available if the relation `draft_order` is expanded.
    */
-  draft_order?: DraftOrder | null;  /**
+  draft_order?: DraftOrder;  /**
    * The line items that belong to the order. Available if the relation `items` is expanded.
    */
   items?: Array<LineItem>;  /**
@@ -144,7 +144,7 @@ export interface Order {
   sales_channel_id?: string | null;  /**
    * A sales channel object. Available if the relation `sales_channel` is expanded.
    */
-  sales_channel?: SalesChannel | null;  /**
+  sales_channel?: SalesChannel;  /**
    * The total of shipping
    */
   shipping_total?: number;  /**

@@ -27,7 +27,7 @@ export interface ShippingMethodTaxLine {
   shipping_method_id: string;  /**
    * Available if the relation `shipping_method` is expanded.
    */
-  shipping_method?: ShippingMethod | null;  /**
+  shipping_method?: ShippingMethod;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

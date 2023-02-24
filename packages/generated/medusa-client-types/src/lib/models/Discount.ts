@@ -25,7 +25,7 @@ export interface Discount {
   rule_id: string | null;  /**
    * Available if the relation `rule` is expanded.
    */
-  rule?: DiscountRule | null;  /**
+  rule?: DiscountRule;  /**
    * Whether the Discount has been disabled. Disabled discounts cannot be applied to carts
    */
   is_disabled: boolean;  /**
@@ -34,7 +34,7 @@ export interface Discount {
   parent_discount_id: string | null;  /**
    * Available if the relation `parent_discount` is expanded.
    */
-  parent_discount?: Discount | null;  /**
+  parent_discount?: Discount;  /**
    * The time at which the discount can be used.
    */
   starts_at: string;  /**

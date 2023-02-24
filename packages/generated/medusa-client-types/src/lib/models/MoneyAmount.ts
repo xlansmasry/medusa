@@ -21,7 +21,7 @@ export interface MoneyAmount {
   currency_code: string;  /**
    * Available if the relation `currency` is expanded.
    */
-  currency?: Currency | null;  /**
+  currency?: Currency;  /**
    * The amount in the smallest currecny unit (e.g. cents 100 cents to charge $1) that the Product Variant will cost.
    */
   amount: number;  /**
@@ -36,19 +36,19 @@ export interface MoneyAmount {
   price_list_id: string | null;  /**
    * Available if the relation `price_list` is expanded.
    */
-  price_list?: PriceList | null;  /**
+  price_list?: PriceList;  /**
    * The id of the Product Variant contained in the Line Item.
    */
   variant_id: string | null;  /**
    * The Product Variant contained in the Line Item. Available if the relation `variant` is expanded.
    */
-  variant?: ProductVariant | null;  /**
+  variant?: ProductVariant;  /**
    * The region's ID
    */
   region_id: string | null;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

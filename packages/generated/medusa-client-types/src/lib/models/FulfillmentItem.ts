@@ -19,10 +19,10 @@ export interface FulfillmentItem {
   item_id: string;  /**
    * A fulfillment object. Available if the relation `fulfillment` is expanded.
    */
-  fulfillment?: Fulfillment | null;  /**
+  fulfillment?: Fulfillment;  /**
    * Available if the relation `item` is expanded.
    */
-  item?: LineItem | null;  /**
+  item?: LineItem;  /**
    * The quantity of the Line Item that is included in the Fulfillment.
    */
   quantity: number;};

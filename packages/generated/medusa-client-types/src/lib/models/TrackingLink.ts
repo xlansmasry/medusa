@@ -24,7 +24,7 @@ export interface TrackingLink {
   fulfillment_id: string;  /**
    * Available if the relation `fulfillment` is expanded.
    */
-  fulfillment?: Fulfillment | null;  /**
+  fulfillment?: Fulfillment;  /**
    * Randomly generated key used to continue the completion of a process in case of failure.
    */
   idempotency_key: string | null;  /**

@@ -30,13 +30,13 @@ export interface Cart {
   billing_address_id: string | null;  /**
    * Available if the relation `billing_address` is expanded.
    */
-  billing_address?: Address | null;  /**
+  billing_address?: Address;  /**
    * The shipping address's ID
    */
   shipping_address_id: string | null;  /**
    * Available if the relation `shipping_address` is expanded.
    */
-  shipping_address?: Address | null;  /**
+  shipping_address?: Address;  /**
    * Available if the relation `items` is expanded.
    */
   items?: Array<LineItem>;  /**
@@ -45,7 +45,7 @@ export interface Cart {
   region_id: string;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * Available if the relation `discounts` is expanded.
    */
   discounts?: Array<Discount>;  /**
@@ -57,7 +57,7 @@ export interface Cart {
   customer_id: string | null;  /**
    * A customer object. Available if the relation `customer` is expanded.
    */
-  customer?: Customer | null;  /**
+  customer?: Customer;  /**
    * The selected payment session in the cart.
    */
   payment_session: PaymentSession | null;  /**
@@ -69,7 +69,7 @@ export interface Cart {
   payment_id: string | null;  /**
    * Available if the relation `payment` is expanded.
    */
-  payment?: Payment | null;  /**
+  payment?: Payment;  /**
    * The shipping methods added to the cart.
    */
   shipping_methods?: Array<ShippingMethod>;  /**
@@ -93,7 +93,7 @@ export interface Cart {
   sales_channel_id?: string | null;  /**
    * A sales channel object. Available if the relation `sales_channel` is expanded.
    */
-  sales_channel?: SalesChannel | null;  /**
+  sales_channel?: SalesChannel;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

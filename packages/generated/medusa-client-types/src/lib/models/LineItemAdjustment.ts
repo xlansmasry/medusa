@@ -19,7 +19,7 @@ export interface LineItemAdjustment {
   item_id: string;  /**
    * Available if the relation `item` is expanded.
    */
-  item?: LineItem | null;  /**
+  item?: LineItem;  /**
    * The line item's adjustment description
    */
   description: string;  /**
@@ -28,7 +28,7 @@ export interface LineItemAdjustment {
   discount_id: string | null;  /**
    * Available if the relation `discount` is expanded.
    */
-  discount?: Discount | null;  /**
+  discount?: Discount;  /**
    * The adjustment amount
    */
   amount: number;  /**

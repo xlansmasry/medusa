@@ -19,7 +19,7 @@ export interface Address {
   customer_id: string | null;  /**
    * Available if the relation `customer` is expanded.
    */
-  customer?: Customer | null;  /**
+  customer?: Customer;  /**
    * Company name
    */
   company: string | null;  /**
@@ -43,7 +43,7 @@ export interface Address {
   country_code: string | null;  /**
    * A country object. Available if the relation `country` is expanded.
    */
-  country?: Country | null;  /**
+  country?: Country;  /**
    * Province
    */
   province: string | null;  /**

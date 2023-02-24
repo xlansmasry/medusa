@@ -28,22 +28,22 @@ export interface Return {
   swap_id: string | null;  /**
    * A swap object. Available if the relation `swap` is expanded.
    */
-  swap?: Swap | null;  /**
+  swap?: Swap;  /**
    * The ID of the Claim that the Return is a part of.
    */
   claim_order_id: string | null;  /**
    * A claim order object. Available if the relation `claim_order` is expanded.
    */
-  claim_order?: ClaimOrder | null;  /**
+  claim_order?: ClaimOrder;  /**
    * The ID of the Order that the Return is made from.
    */
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The Shipping Method that will be used to send the Return back. Can be null if the Customer facilitates the return shipment themselves. Available if the relation `shipping_method` is expanded.
    */
-  shipping_method?: ShippingMethod | null;  /**
+  shipping_method?: ShippingMethod;  /**
    * Data about the return shipment as provided by the Fulfilment Provider that handles the return shipment.
    */
   shipping_data: Record<string, any> | null;  /**

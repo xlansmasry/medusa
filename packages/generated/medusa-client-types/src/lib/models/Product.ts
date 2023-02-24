@@ -59,7 +59,7 @@ export interface Product {
   profile_id: string;  /**
    * Available if the relation `profile` is expanded.
    */
-  profile?: ShippingProfile | null;  /**
+  profile?: ShippingProfile;  /**
    * The weight of the Product Variant. May be used in shipping rate calculations.
    */
   weight: number | null;  /**
@@ -89,13 +89,13 @@ export interface Product {
   collection_id: string | null;  /**
    * A product collection object. Available if the relation `collection` is expanded.
    */
-  collection?: ProductCollection | null;  /**
+  collection?: ProductCollection;  /**
    * The Product type that the Product belongs to
    */
   type_id: string | null;  /**
    * Available if the relation `type` is expanded.
    */
-  type?: ProductType | null;  /**
+  type?: ProductType;  /**
    * The Product Tags assigned to the Product. Available if the relation `tags` is expanded.
    */
   tags?: Array<ProductTag>;  /**

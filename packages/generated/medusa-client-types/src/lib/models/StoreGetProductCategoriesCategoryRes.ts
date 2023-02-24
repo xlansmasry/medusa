@@ -8,7 +8,6 @@ import type { ProductCategory } from './ProductCategory';
 export interface StoreGetProductCategoriesCategoryRes {
   product_category: SetRequired<ProductCategory,
   "parent_category" | "category_children">
-
 };
 
 

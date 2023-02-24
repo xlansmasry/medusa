@@ -33,6 +33,6 @@ export interface Country {
   region_id: string | null;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;};
+  region?: Region;};
 
 

@@ -31,19 +31,19 @@ export interface Swap {
   order_id: string;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The new Line Items to ship to the Customer. Available if the relation `additional_items` is expanded.
    */
   additional_items?: Array<LineItem>;  /**
    * A return order object. The Return that is issued for the return part of the Swap. Available if the relation `return_order` is expanded.
    */
-  return_order?: Return | null;  /**
+  return_order?: Return;  /**
    * The Fulfillments used to send the new Line Items. Available if the relation `fulfillments` is expanded.
    */
   fulfillments?: Array<Fulfillment>;  /**
    * The Payment authorized when the Swap requires an additional amount to be charged from the Customer. Available if the relation `payment` is expanded.
    */
-  payment?: Payment | null;  /**
+  payment?: Payment;  /**
    * The difference that is paid or refunded as a result of the Swap. May be negative when the amount paid for the returned items exceed the total of the new Products.
    */
   difference_due: number | null;  /**
@@ -52,7 +52,7 @@ export interface Swap {
   shipping_address_id: string | null;  /**
    * Available if the relation `shipping_address` is expanded.
    */
-  shipping_address?: Address | null;  /**
+  shipping_address?: Address;  /**
    * The Shipping Methods used to fulfill the additional items purchased. Available if the relation `shipping_methods` is expanded.
    */
   shipping_methods?: Array<ShippingMethod>;  /**
@@ -61,7 +61,7 @@ export interface Swap {
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The date with timezone at which the Swap was confirmed by the Customer.
    */
   confirmed_at: string | null;  /**

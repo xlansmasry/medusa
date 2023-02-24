@@ -27,34 +27,34 @@ export interface ShippingMethod {
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The id of the Claim that the Shipping Method is used on.
    */
   claim_order_id: string | null;  /**
    * A claim order object. Available if the relation `claim_order` is expanded.
    */
-  claim_order?: ClaimOrder | null;  /**
+  claim_order?: ClaimOrder;  /**
    * The id of the Cart that the Shipping Method is used on.
    */
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The id of the Swap that the Shipping Method is used on.
    */
   swap_id: string | null;  /**
    * A swap object. Available if the relation `swap` is expanded.
    */
-  swap?: Swap | null;  /**
+  swap?: Swap;  /**
    * The id of the Return that the Shipping Method is used on.
    */
   return_id: string | null;  /**
    * A return object. Available if the relation `return_order` is expanded.
    */
-  return_order?: Return | null;  /**
+  return_order?: Return;  /**
    * Available if the relation `shipping_option` is expanded.
    */
-  shipping_option?: ShippingOption | null;  /**
+  shipping_option?: ShippingOption;  /**
    * Available if the relation `tax_lines` is expanded.
    */
   tax_lines?: Array<ShippingMethodTaxLine>;  /**

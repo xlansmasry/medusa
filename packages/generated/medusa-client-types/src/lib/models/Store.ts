@@ -22,7 +22,7 @@ export interface Store {
   default_currency_code: string;  /**
    * Available if the relation `default_currency` is expanded.
    */
-  default_currency?: Currency | null;  /**
+  default_currency?: Currency;  /**
    * The currencies that are enabled for the Store. Available if the relation `currencies` is expanded.
    */
   currencies?: Array<Currency>;  /**

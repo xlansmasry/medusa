@@ -29,7 +29,7 @@ export interface DiscountCondition {
   discount_rule_id: string;  /**
    * Available if the relation `discount_rule` is expanded.
    */
-  discount_rule?: DiscountRule | null;  /**
+  discount_rule?: DiscountRule;  /**
    * products associated with this condition if type = products. Available if the relation `products` is expanded.
    */
   products?: Array<Product>;  /**

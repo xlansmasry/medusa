@@ -18,7 +18,7 @@ export interface ShippingOptionRequirement {
   shipping_option_id: string;  /**
    * Available if the relation `shipping_option` is expanded.
    */
-  shipping_option?: ShippingOption | null;  /**
+  shipping_option?: ShippingOption;  /**
    * The type of the requirement, this defines how the value will be compared to the Cart's total. `min_subtotal` requirements define the minimum subtotal that is needed for the Shipping Option to be available, while the `max_subtotal` defines the maximum subtotal that the Cart can have for the Shipping Option to be available.
    */
   type: 'min_subtotal' | 'max_subtotal';  /**

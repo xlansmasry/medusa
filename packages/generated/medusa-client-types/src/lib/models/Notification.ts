@@ -28,7 +28,7 @@ export interface Notification {
   customer_id: string | null;  /**
    * A customer object. Available if the relation `customer` is expanded.
    */
-  customer?: Customer | null;  /**
+  customer?: Customer;  /**
    * The address that the Notification was sent to. This will usually be an email address, but represent other addresses such as a chat bot user id
    */
   to: string;  /**
@@ -40,7 +40,7 @@ export interface Notification {
   parent_id: string | null;  /**
    * Available if the relation `parent_notification` is expanded.
    */
-  parent_notification?: Notification | null;  /**
+  parent_notification?: Notification;  /**
    * The resends that have been completed after the original Notification. Available if the relation `resends` is expanded.
    */
   resends?: Array<Notification>;  /**
@@ -49,7 +49,7 @@ export interface Notification {
   provider_id: string | null;  /**
    * Available if the relation `provider` is expanded.
    */
-  provider?: NotificationProvider | null;  /**
+  provider?: NotificationProvider;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

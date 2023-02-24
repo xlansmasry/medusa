@@ -26,7 +26,7 @@ export interface Region {
   currency_code: string;  /**
    * Available if the relation `currency` is expanded.
    */
-  currency?: Currency | null;  /**
+  currency?: Currency;  /**
    * The tax rate that should be charged on purchases in the Region.
    */
   tax_rate: number;  /**
@@ -50,7 +50,7 @@ export interface Region {
   tax_provider_id: string | null;  /**
    * Available if the relation `tax_provider` is expanded.
    */
-  tax_provider?: TaxProvider | null;  /**
+  tax_provider?: TaxProvider;  /**
    * The Payment Providers that can be used to process Payments in the Region. Available if the relation `payment_providers` is expanded.
    */
   payment_providers?: Array<PaymentProvider>;  /**

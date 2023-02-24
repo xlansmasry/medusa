@@ -7,8 +7,7 @@ import type { ProductCategory } from './ProductCategory';
 
 export interface StoreProductCategoriesListRes {
   product_categories: Array<SetRequired<ProductCategory,
-  "parent_category" | "category_children">
-  >
+  "parent_category" | "category_children">>
   /**
    * The total number of items available
    */

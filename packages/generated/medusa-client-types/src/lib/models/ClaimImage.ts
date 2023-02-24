@@ -18,7 +18,7 @@ export interface ClaimImage {
   claim_item_id: string;  /**
    * A claim item object. Available if the relation `claim_item` is expanded.
    */
-  claim_item?: ClaimItem | null;  /**
+  claim_item?: ClaimItem;  /**
    * The URL of the image
    */
   url: string;  /**

@@ -22,13 +22,13 @@ export interface ProductOptionValue {
   option_id: string;  /**
    * Available if the relation `option` is expanded.
    */
-  option?: ProductOption | null;  /**
+  option?: ProductOption;  /**
    * The ID of the Product Variant that the Product Option Value is defined for.
    */
   variant_id: string;  /**
    * Available if the relation `variant` is expanded.
    */
-  variant?: ProductVariant | null;  /**
+  variant?: ProductVariant;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

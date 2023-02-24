@@ -22,19 +22,19 @@ export interface OrderItemChange {
   order_edit_id: string;  /**
    * Available if the relation `order_edit` is expanded.
    */
-  order_edit?: OrderEdit | null;  /**
+  order_edit?: OrderEdit;  /**
    * The ID of the original line item in the order
    */
   original_line_item_id: string | null;  /**
    * Available if the relation `original_line_item` is expanded.
    */
-  original_line_item?: LineItem | null;  /**
+  original_line_item?: LineItem;  /**
    * The ID of the cloned line item.
    */
   line_item_id: string | null;  /**
    * Available if the relation `line_item` is expanded.
    */
-  line_item?: LineItem | null;  /**
+  line_item?: LineItem;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

@@ -25,13 +25,13 @@ export interface DraftOrder {
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The ID of the order associated with the draft order.
    */
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The date the draft order was canceled at.
    */
   canceled_at: string | null;  /**

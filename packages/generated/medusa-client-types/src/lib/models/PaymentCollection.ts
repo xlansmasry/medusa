@@ -36,13 +36,13 @@ export interface PaymentCollection {
   region_id: string;  /**
    * Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * The 3 character ISO code for the currency.
    */
   currency_code: string;  /**
    * Available if the relation `currency` is expanded.
    */
-  currency?: Currency | null;  /**
+  currency?: Currency;  /**
    * Available if the relation `payment_sessions` is expanded.
    */
   payment_sessions?: Array<PaymentSession>;  /**

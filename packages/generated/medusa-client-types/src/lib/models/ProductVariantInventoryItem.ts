@@ -21,7 +21,7 @@ export interface ProductVariantInventoryItem {
   variant_id: string;  /**
    * A ProductVariant object. Available if the relation `variant` is expanded.
    */
-  variant?: ProductVariant | null;  /**
+  variant?: ProductVariant;  /**
    * The quantity of an inventory item required for one quantity of the variant.
    */
   required_quantity: number;  /**

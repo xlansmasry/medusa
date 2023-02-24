@@ -25,7 +25,7 @@ export interface ProductOption {
   product_id: string;  /**
    * A product object. Available if the relation `product` is expanded.
    */
-  product?: Product | null;  /**
+  product?: Product;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

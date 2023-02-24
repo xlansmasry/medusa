@@ -23,25 +23,25 @@ export interface Fulfillment {
   claim_order_id: string | null;  /**
    * A claim order object. Available if the relation `claim_order` is expanded.
    */
-  claim_order?: ClaimOrder | null;  /**
+  claim_order?: ClaimOrder;  /**
    * The id of the Swap that the Fulfillment belongs to.
    */
   swap_id: string | null;  /**
    * A swap object. Available if the relation `swap` is expanded.
    */
-  swap?: Swap | null;  /**
+  swap?: Swap;  /**
    * The id of the Order that the Fulfillment belongs to.
    */
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The id of the Fulfillment Provider responsible for handling the fulfillment
    */
   provider_id: string;  /**
    * Available if the relation `provider` is expanded.
    */
-  provider?: FulfillmentProvider | null;  /**
+  provider?: FulfillmentProvider;  /**
    * The id of the stock location the fulfillment will be shipped from
    */
   location_id: string | null;  /**

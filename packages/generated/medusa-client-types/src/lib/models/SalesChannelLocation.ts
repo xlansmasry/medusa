@@ -21,7 +21,7 @@ export interface SalesChannelLocation {
   location_id: string;  /**
    * The sales channel the location is associated with. Available if the relation `sales_channel` is expanded.
    */
-  sales_channel?: SalesChannel | null;  /**
+  sales_channel?: SalesChannel;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

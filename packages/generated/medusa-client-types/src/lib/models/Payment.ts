@@ -21,19 +21,19 @@ export interface Payment {
   swap_id: string | null;  /**
    * A swap object. Available if the relation `swap` is expanded.
    */
-  swap?: Swap | null;  /**
+  swap?: Swap;  /**
    * The id of the Cart that the Payment Session is created for.
    */
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The ID of the Order that the Payment is used for.
    */
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The amount that the Payment has been authorized for.
    */
   amount: number;  /**
@@ -42,7 +42,7 @@ export interface Payment {
   currency_code: string;  /**
    * Available if the relation `currency` is expanded.
    */
-  currency?: Currency | null;  /**
+  currency?: Currency;  /**
    * The amount of the original Payment amount that has been refunded back to the Customer.
    */
   amount_refunded: number;  /**

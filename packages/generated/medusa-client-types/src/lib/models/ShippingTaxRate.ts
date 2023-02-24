@@ -16,13 +16,13 @@ export interface ShippingTaxRate {
   shipping_option_id: string;  /**
    * Available if the relation `shipping_option` is expanded.
    */
-  shipping_option?: ShippingOption | null;  /**
+  shipping_option?: ShippingOption;  /**
    * The ID of the Tax Rate
    */
   rate_id: string;  /**
    * Available if the relation `tax_rate` is expanded.
    */
-  tax_rate?: TaxRate | null;  /**
+  tax_rate?: TaxRate;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

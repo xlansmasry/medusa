@@ -29,7 +29,7 @@ export interface Customer {
   billing_address_id: string | null;  /**
    * Available if the relation `billing_address` is expanded.
    */
-  billing_address?: Address | null;  /**
+  billing_address?: Address;  /**
    * Available if the relation `shipping_addresses` is expanded.
    */
   shipping_addresses?: Array<Address>;  /**

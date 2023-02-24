@@ -30,7 +30,7 @@ export interface TaxRate {
   region_id: string;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * The products that belong to this tax rate. Available if the relation `products` is expanded.
    */
   products?: Array<Product>;  /**

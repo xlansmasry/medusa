@@ -19,10 +19,10 @@ export interface DiscountConditionProductTag {
   condition_id: string;  /**
    * Available if the relation `product_tag` is expanded.
    */
-  product_tag?: ProductTag | null;  /**
+  product_tag?: ProductTag;  /**
    * Available if the relation `discount_condition` is expanded.
    */
-  discount_condition?: DiscountCondition | null;  /**
+  discount_condition?: DiscountCondition;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

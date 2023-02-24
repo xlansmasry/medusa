@@ -24,19 +24,19 @@ export interface ShippingOption {
   region_id: string;  /**
    * A region object. Available if the relation `region` is expanded.
    */
-  region?: Region | null;  /**
+  region?: Region;  /**
    * The ID of the Shipping Profile that the shipping option belongs to. Shipping Profiles have a set of defined Shipping Options that can be used to Fulfill a given set of Products.
    */
   profile_id: string;  /**
    * Available if the relation `profile` is expanded.
    */
-  profile?: ShippingProfile | null;  /**
+  profile?: ShippingProfile;  /**
    * The id of the Fulfillment Provider, that will be used to process Fulfillments from the Shipping Option.
    */
   provider_id: string;  /**
    * Available if the relation `provider` is expanded.
    */
-  provider?: FulfillmentProvider | null;  /**
+  provider?: FulfillmentProvider;  /**
    * The type of pricing calculation that is used when creatin Shipping Methods from the Shipping Option. Can be `flat_rate` for fixed prices or `calculated` if the Fulfillment Provider can provide price calulations.
    */
   price_type: 'flat_rate' | 'calculated';  /**

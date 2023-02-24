@@ -22,13 +22,13 @@ export interface CustomShippingOption {
   shipping_option_id: string;  /**
    * A shipping option object. Available if the relation `shipping_option` is expanded.
    */
-  shipping_option?: ShippingOption | null;  /**
+  shipping_option?: ShippingOption;  /**
    * The ID of the Cart that the custom shipping option is attached to
    */
   cart_id: string | null;  /**
    * A cart object. Available if the relation `cart` is expanded.
    */
-  cart?: Cart | null;  /**
+  cart?: Cart;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

@@ -20,10 +20,10 @@ export interface ReturnItem {
   item_id: string;  /**
    * Available if the relation `return_order` is expanded.
    */
-  return_order?: Return | null;  /**
+  return_order?: Return;  /**
    * Available if the relation `item` is expanded.
    */
-  item?: LineItem | null;  /**
+  item?: LineItem;  /**
    * The quantity of the Line Item that is included in the Return.
    */
   quantity: number;  /**
@@ -41,7 +41,7 @@ export interface ReturnItem {
   reason_id: string | null;  /**
    * Available if the relation `reason` is expanded.
    */
-  reason?: ReturnReason | null;  /**
+  reason?: ReturnReason;  /**
    * An optional note with additional details about the Return.
    */
   note: string | null;  /**

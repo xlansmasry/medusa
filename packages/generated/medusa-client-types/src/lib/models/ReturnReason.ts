@@ -25,7 +25,7 @@ export interface ReturnReason {
   parent_return_reason_id: string | null;  /**
    * Available if the relation `parent_return_reason` is expanded.
    */
-  parent_return_reason?: ReturnReason | null;  /**
+  parent_return_reason?: ReturnReason;  /**
    * Available if the relation `return_reason_children` is expanded.
    */
   return_reason_children?: ReturnReason;  /**

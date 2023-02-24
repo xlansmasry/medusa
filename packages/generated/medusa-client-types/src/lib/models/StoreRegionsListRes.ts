@@ -7,8 +7,7 @@ import type { Region } from './Region';
 
 export interface StoreRegionsListRes {
   regions: Array<SetRequired<Region,
-  "countries" | "payment_providers" | "fulfillment_providers">
-  >
+  "countries" | "payment_providers" | "fulfillment_providers">>
 };
 
 

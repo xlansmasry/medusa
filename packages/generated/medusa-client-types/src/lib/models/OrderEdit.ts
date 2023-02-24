@@ -21,7 +21,7 @@ export interface OrderEdit {
   order_id: string;  /**
    * Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * Available if the relation `changes` is expanded.
    */
   changes?: Array<OrderItemChange>;  /**
@@ -93,7 +93,7 @@ export interface OrderEdit {
   payment_collection_id: string | null;  /**
    * Available if the relation `payment_collection` is expanded.
    */
-  payment_collection?: PaymentCollection | null;  /**
+  payment_collection?: PaymentCollection;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**

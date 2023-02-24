@@ -19,13 +19,13 @@ export interface Refund {
   order_id: string | null;  /**
    * An order object. Available if the relation `order` is expanded.
    */
-  order?: Order | null;  /**
+  order?: Order;  /**
    * The payment's ID if available
    */
   payment_id: string | null;  /**
    * Available if the relation `payment` is expanded.
    */
-  payment?: Payment | null;  /**
+  payment?: Payment;  /**
    * The amount that has be refunded to the Customer.
    */
   amount: number;  /**

@@ -16,13 +16,13 @@ export interface ProductTypeTaxRate {
   product_type_id: string;  /**
    * Available if the relation `product_type` is expanded.
    */
-  product_type?: ProductType | null;  /**
+  product_type?: ProductType;  /**
    * The id of the Tax Rate
    */
   rate_id: string;  /**
    * Available if the relation `tax_rate` is expanded.
    */
-  tax_rate?: TaxRate | null;  /**
+  tax_rate?: TaxRate;  /**
    * The date with timezone at which the resource was created.
    */
   created_at: string;  /**
