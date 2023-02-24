@@ -38,7 +38,6 @@
  *     example: addr_01G8ZH853YPY9B94857DY91YGW
  *   billing_address:
  *     description: Available if the relation `billing_address` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Address"
  *   shipping_address_id:
  *     description: The shipping address's ID
@@ -47,7 +46,6 @@
  *     example: addr_01G8ZH853YPY9B94857DY91YGW
  *   shipping_address:
  *     description: Available if the relation `shipping_address` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Address"
  *   items:
  *     description: Available if the relation `items` is expanded.
@@ -60,7 +58,6 @@
  *     example: reg_01G1G5V26T9H8Y0M4JNE3YGA4G
  *   region:
  *     description: A region object. Available if the relation `region` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Region"
  *   discounts:
  *     description: Available if the relation `discounts` is expanded.
@@ -79,7 +76,6 @@
  *     example: cus_01G2SG30J8C85S4A5CHM2S1NS2
  *   customer:
  *     description: A customer object. Available if the relation `customer` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Customer"
  *   payment_session:
  *     description: The selected payment session in the cart.
@@ -97,7 +93,6 @@
  *     example: pay_01G8ZCC5W42ZNY842124G7P5R9
  *   payment:
  *     description: Available if the relation `payment` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Payment"
  *   shipping_methods:
  *     description: The shipping methods added to the cart.
@@ -145,7 +140,6 @@
  *     example: null
  *   sales_channel:
  *     description: A sales channel object. Available if the relation `sales_channel` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/SalesChannel"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

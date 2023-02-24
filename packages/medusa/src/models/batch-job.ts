@@ -154,7 +154,6 @@ export class BatchJob extends SoftDeletableEntity {
  *    example: usr_01G1G5V26F5TB3GPAPNJ8X1S3V
  *  created_by_user:
  *    description: A user object. Available if the relation `created_by_user` is expanded.
- *    nullable: true
  *    $ref: "#/components/schemas/User"
  *  context:
  *    description: The context of the batch job, the type of the batch job determines what the context should contain.

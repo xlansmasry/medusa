@@ -104,7 +104,6 @@ export class GiftCard extends SoftDeletableEntity {
  *     example: reg_01G1G5V26T9H8Y0M4JNE3YGA4G
  *   region:
  *     description: A region object. Available if the relation `region` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Region"
  *   order_id:
  *     description: The id of the Order that the Gift Card was purchased in.
@@ -113,7 +112,6 @@ export class GiftCard extends SoftDeletableEntity {
  *     example: order_01G8TJSYT9M6AVS5N4EMNFS1EK
  *   order:
  *     description: An order object. Available if the relation `order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Order"
  *   is_disabled:
  *     description: Whether the Gift Card has been disabled. Disabled Gift Cards cannot be applied to carts.

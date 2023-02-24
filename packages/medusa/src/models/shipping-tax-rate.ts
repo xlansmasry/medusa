@@ -55,7 +55,6 @@ export class ShippingTaxRate {
  *     example: so_01G1G5V27GYX4QXNARRQCW1N8T
  *   shipping_option:
  *     description: Available if the relation `shipping_option` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ShippingOption"
  *   rate_id:
  *     description: The ID of the Tax Rate
@@ -63,7 +62,6 @@ export class ShippingTaxRate {
  *     example: txr_01G8XDBAWKBHHJRKH0AV02KXBR
  *   tax_rate:
  *     description: Available if the relation `tax_rate` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/TaxRate"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

@@ -59,11 +59,9 @@ export class DiscountConditionProductType {
  *     example: discon_01G8X9A7ESKAJXG2H0E6F1MW7A
  *   product_type:
  *     description: Available if the relation `product_type` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ProductType"
  *   discount_condition:
  *     description: Available if the relation `discount_condition` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/DiscountCondition"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

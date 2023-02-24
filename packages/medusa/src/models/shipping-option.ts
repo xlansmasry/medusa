@@ -121,7 +121,6 @@ export class ShippingOption extends SoftDeletableEntity {
  *     example: reg_01G1G5V26T9H8Y0M4JNE3YGA4G
  *   region:
  *     description: A region object. Available if the relation `region` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Region"
  *   profile_id:
  *     description: The ID of the Shipping Profile that the shipping option belongs to. Shipping Profiles have a set of defined Shipping Options that can be used to Fulfill a given set of Products.
@@ -129,7 +128,6 @@ export class ShippingOption extends SoftDeletableEntity {
  *     example: sp_01G1G5V239ENSZ5MV4JAR737BM
  *   profile:
  *     description: Available if the relation `profile` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ShippingProfile"
  *   provider_id:
  *     description: The id of the Fulfillment Provider, that will be used to process Fulfillments from the Shipping Option.
@@ -137,7 +135,6 @@ export class ShippingOption extends SoftDeletableEntity {
  *     example: manual
  *   provider:
  *     description: Available if the relation `provider` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/FulfillmentProvider"
  *   price_type:
  *     description: The type of pricing calculation that is used when creatin Shipping Methods from the Shipping Option. Can be `flat_rate` for fixed prices or `calculated` if the Fulfillment Provider can provide price calulations.

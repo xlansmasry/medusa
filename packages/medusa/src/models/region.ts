@@ -142,7 +142,6 @@ export class Region extends SoftDeletableEntity {
  *       description: See a list of codes.
  *   currency:
  *     description: Available if the relation `currency` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Currency"
  *   tax_rate:
  *     description: The tax rate that should be charged on purchases in the Region.
@@ -178,7 +177,6 @@ export class Region extends SoftDeletableEntity {
  *     example: null
  *   tax_provider:
  *     description: Available if the relation `tax_provider` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/TaxProvider"
  *   payment_providers:
  *     description: The Payment Providers that can be used to process Payments in the Region. Available if the relation `payment_providers` is expanded.

@@ -197,7 +197,6 @@ export class LineItem extends BaseEntity {
  *     example: cart_01G8ZH853Y6TFXWPG5EYE81X63
  *   cart:
  *     description: A cart object. Available if the relation `cart` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Cart"
  *   order_id:
  *     description: The ID of the Order that the Line Item belongs to.
@@ -206,7 +205,6 @@ export class LineItem extends BaseEntity {
  *     example: order_01G8TJSYT9M6AVS5N4EMNFS1EK
  *   order:
  *     description: An order object. Available if the relation `order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Order"
  *   swap_id:
  *     description: The id of the Swap that the Line Item belongs to.
@@ -215,7 +213,6 @@ export class LineItem extends BaseEntity {
  *     example: null
  *   swap:
  *     description: A swap object. Available if the relation `swap` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Swap"
  *   claim_order_id:
  *     description: The id of the Claim that the Line Item belongs to.
@@ -224,7 +221,6 @@ export class LineItem extends BaseEntity {
  *     example: null
  *   claim_order:
  *     description: A claim order object. Available if the relation `claim_order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ClaimOrder"
  *   tax_lines:
  *     description: Available if the relation `tax_lines` is expanded.
@@ -246,7 +242,6 @@ export class LineItem extends BaseEntity {
  *     type: string
  *   order_edit:
  *     description: The order edit joined. Available if the relation `order_edit` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/OrderEdit"
  *   title:
  *     description: The title of the Line Item, this should be easily identifiable by the Customer.
@@ -295,7 +290,6 @@ export class LineItem extends BaseEntity {
  *     example: variant_01G1G5V2MRX2V3PVSR2WXYPFB6
  *   variant:
  *     description: A product variant object. The Product Variant contained in the Line Item. Available if the relation `variant` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ProductVariant"
  *   quantity:
  *     description: The quantity of the content in the Line Item.

@@ -199,11 +199,9 @@ export class ClaimOrder extends SoftDeletableEntity {
  *     example: order_01G8TJSYT9M6AVS5N4EMNFS1EK
  *   order:
  *     description: An order object. Available if the relation `order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Order"
  *   return_order:
  *     description: A return object. Holds information about the return if the claim is to be returned. Available if the relation 'return_order' is expanded
- *     nullable: true
  *     $ref: "#/components/schemas/Return"
  *   shipping_address_id:
  *     description: The ID of the address that the new items should be shipped to
@@ -212,7 +210,6 @@ export class ClaimOrder extends SoftDeletableEntity {
  *     example: addr_01G8ZH853YPY9B94857DY91YGW
  *   shipping_address:
  *     description: Available if the relation `shipping_address` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Address"
  *   shipping_methods:
  *     description: The shipping methods that the claim order will be shipped with.

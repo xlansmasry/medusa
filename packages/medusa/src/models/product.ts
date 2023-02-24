@@ -286,7 +286,6 @@ export class Product extends SoftDeletableEntity {
  *     example: sp_01G1G5V239ENSZ5MV4JAR737BM
  *   profile:
  *     description: Available if the relation `profile` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ShippingProfile"
  *   weight:
  *     description: The weight of the Product Variant. May be used in shipping rate calculations.
@@ -335,7 +334,6 @@ export class Product extends SoftDeletableEntity {
  *     example: pcol_01F0YESBFAZ0DV6V831JXWH0BG
  *   collection:
  *     description: A product collection object. Available if the relation `collection` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ProductCollection"
  *   type_id:
  *     description: The Product type that the Product belongs to
@@ -344,7 +342,6 @@ export class Product extends SoftDeletableEntity {
  *     example: ptyp_01G8X9A7ESKAJXG2H0E6F1MW7A
  *   type:
  *     description: Available if the relation `type` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ProductType"
  *   tags:
  *     description: The Product Tags assigned to the Product. Available if the relation `tags` is expanded.

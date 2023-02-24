@@ -109,7 +109,6 @@ export class Store extends BaseEntity {
  *       description: See a list of codes.
  *   default_currency:
  *     description: Available if the relation `default_currency` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Currency"
  *   currencies:
  *     description: The currencies that are enabled for the Store. Available if the relation `currencies` is expanded.

@@ -11,8 +11,15 @@ import {
   OneToMany,
   OneToOne,
 } from "typeorm"
-import { DbAwareColumn, resolveDbGenerationStrategy, resolveDbType, } from "../utils/db-aware-column"
-import { FeatureFlagColumn, FeatureFlagDecorators, } from "../utils/feature-flag-decorators"
+import {
+  DbAwareColumn,
+  resolveDbGenerationStrategy,
+  resolveDbType,
+} from "../utils/db-aware-column"
+import {
+  FeatureFlagColumn,
+  FeatureFlagDecorators,
+} from "../utils/feature-flag-decorators"
 
 import { BaseEntity } from "../interfaces/models/base-entity"
 import { generateEntityId } from "../utils/generate-entity-id"
@@ -346,7 +353,6 @@ export class Order extends BaseEntity {
  *     example: cart_01G8ZH853Y6TFXWPG5EYE81X63
  *   cart:
  *     description: A cart object. Available if the relation `cart` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Cart"
  *   customer_id:
  *     description: The ID of the customer associated with the order
@@ -354,7 +360,6 @@ export class Order extends BaseEntity {
  *     example: cus_01G2SG30J8C85S4A5CHM2S1NS2
  *   customer:
  *     description: A customer object. Available if the relation `customer` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Customer"
  *   email:
  *     description: The email associated with the order
@@ -367,7 +372,6 @@ export class Order extends BaseEntity {
  *     example: addr_01G8ZH853YPY9B94857DY91YGW
  *   billing_address:
  *     description: Available if the relation `billing_address` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Address"
  *   shipping_address_id:
  *     description: The ID of the shipping address associated with the order
@@ -376,7 +380,6 @@ export class Order extends BaseEntity {
  *     example: addr_01G8ZH853YPY9B94857DY91YGW
  *   shipping_address:
  *     description: Available if the relation `shipping_address` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Address"
  *   region_id:
  *     description: The region's ID
@@ -384,7 +387,6 @@ export class Order extends BaseEntity {
  *     example: reg_01G1G5V26T9H8Y0M4JNE3YGA4G
  *   region:
  *     description: A region object. Available if the relation `region` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Region"
  *   currency_code:
  *     description: The 3 character currency code that is used in the order
@@ -395,7 +397,6 @@ export class Order extends BaseEntity {
  *       description: See a list of codes.
  *   currency:
  *     description: Available if the relation `currency` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Currency"
  *   tax_rate:
  *     description: The order's tax rate
@@ -454,7 +455,6 @@ export class Order extends BaseEntity {
  *     example: null
  *   draft_order:
  *     description: A draft order object. Available if the relation `draft_order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/DraftOrder"
  *   items:
  *     description: The line items that belong to the order. Available if the relation `items` is expanded.
@@ -500,7 +500,6 @@ export class Order extends BaseEntity {
  *     example: null
  *   sales_channel:
  *     description: A sales channel object. Available if the relation `sales_channel` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/SalesChannel"
  *   shipping_total:
  *     type: integer

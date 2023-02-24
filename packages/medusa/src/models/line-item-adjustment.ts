@@ -76,7 +76,6 @@ export class LineItemAdjustment {
  *     example: item_01G8ZC9GWT6B2GP5FSXRXNFNGN
  *   item:
  *     description: Available if the relation `item` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/LineItem"
  *   description:
  *     description: The line item's adjustment description
@@ -89,7 +88,6 @@ export class LineItemAdjustment {
  *     example: disc_01F0YESMW10MGHWJKZSDDMN0VN
  *   discount:
  *     description: Available if the relation `discount` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Discount"
  *   amount:
  *     description: The adjustment amount

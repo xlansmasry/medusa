@@ -89,7 +89,6 @@ export class OrderItemChange extends SoftDeletableEntity {
  *     example: oe_01G2SG30J8C85S4A5CHM2S1NS2
  *   order_edit:
  *     description: Available if the relation `order_edit` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/OrderEdit"
  *   original_line_item_id:
  *      description: The ID of the original line item in the order
@@ -98,7 +97,6 @@ export class OrderItemChange extends SoftDeletableEntity {
  *      example: item_01G8ZC9GWT6B2GP5FSXRXNFNGN
  *   original_line_item:
  *      description: Available if the relation `original_line_item` is expanded.
- *      nullable: true
  *      $ref: "#/components/schemas/LineItem"
  *   line_item_id:
  *      description: The ID of the cloned line item.
@@ -107,7 +105,6 @@ export class OrderItemChange extends SoftDeletableEntity {
  *      example: item_01G8ZC9GWT6B2GP5FSXRXNFNGN
  *   line_item:
  *      description: Available if the relation `line_item` is expanded.
- *      nullable: true
  *      $ref: "#/components/schemas/LineItem"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

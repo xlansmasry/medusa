@@ -87,7 +87,6 @@ export class ReturnReason extends SoftDeletableEntity {
  *     example: null
  *   parent_return_reason:
  *     description: Available if the relation `parent_return_reason` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ReturnReason"
  *   return_reason_children:
  *     description: Available if the relation `return_reason_children` is expanded.

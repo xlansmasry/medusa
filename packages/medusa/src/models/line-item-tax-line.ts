@@ -67,7 +67,6 @@ export class LineItemTaxLine extends TaxLine {
  *     example: item_01G8ZC9GWT6B2GP5FSXRXNFNGN
  *   item:
  *     description: Available if the relation `item` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/LineItem"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

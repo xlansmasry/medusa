@@ -129,7 +129,6 @@ export class TaxRate extends BaseEntity {
  *     example: reg_01G1G5V26T9H8Y0M4JNE3YGA4G
  *   region:
  *     description: A region object. Available if the relation `region` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Region"
  *   products:
  *     description: The products that belong to this tax rate. Available if the relation `products` is expanded.

@@ -43,11 +43,9 @@ export class FulfillmentItem {
  *     example: item_01G8ZC9GWT6B2GP5FSXRXNFNGN
  *   fulfillment:
  *     description: A fulfillment object. Available if the relation `fulfillment` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Fulfillment"
  *   item:
  *     description: Available if the relation `item` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/LineItem"
  *   quantity:
  *     description: The quantity of the Line Item that is included in the Fulfillment.

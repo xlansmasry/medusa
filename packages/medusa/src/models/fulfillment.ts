@@ -126,7 +126,6 @@ export class Fulfillment extends BaseEntity {
  *     example: null
  *   claim_order:
  *     description: A claim order object. Available if the relation `claim_order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ClaimOrder"
  *   swap_id:
  *     description: The id of the Swap that the Fulfillment belongs to.
@@ -135,7 +134,6 @@ export class Fulfillment extends BaseEntity {
  *     example: null
  *   swap:
  *     description: A swap object. Available if the relation `swap` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Swap"
  *   order_id:
  *     description: The id of the Order that the Fulfillment belongs to.
@@ -144,7 +142,6 @@ export class Fulfillment extends BaseEntity {
  *     example: order_01G8TJSYT9M6AVS5N4EMNFS1EK
  *   order:
  *     description: An order object. Available if the relation `order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Order"
  *   provider_id:
  *     description: The id of the Fulfillment Provider responsible for handling the fulfillment
@@ -152,7 +149,6 @@ export class Fulfillment extends BaseEntity {
  *     example: manual
  *   provider:
  *     description: Available if the relation `provider` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/FulfillmentProvider"
  *   location_id:
  *     description: The id of the stock location the fulfillment will be shipped from

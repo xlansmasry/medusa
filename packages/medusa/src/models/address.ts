@@ -100,7 +100,6 @@ export class Address extends SoftDeletableEntity {
  *    example: cus_01G2SG30J8C85S4A5CHM2S1NS2
  *  customer:
  *    description: Available if the relation `customer` is expanded.
- *    nullable: true
  *    $ref: "#/components/schemas/Customer"
  *  company:
  *    description: Company name
@@ -142,7 +141,6 @@ export class Address extends SoftDeletableEntity {
  *    example: st
  *  country:
  *    description: A country object. Available if the relation `country` is expanded.
- *    nullable: true
  *    $ref: "#/components/schemas/Country"
  *  province:
  *    description: Province

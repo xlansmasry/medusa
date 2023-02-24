@@ -72,7 +72,6 @@ export class ProductOption extends SoftDeletableEntity {
  *     example: prod_01G1G5V2MBA328390B5AXJ610F
  *   product:
  *     description: A product object. Available if the relation `product` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Product"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

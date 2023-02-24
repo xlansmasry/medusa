@@ -98,7 +98,6 @@ export class MoneyAmount extends SoftDeletableEntity {
  *       description: See a list of codes.
  *   currency:
  *     description: Available if the relation `currency` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Currency"
  *   amount:
  *     description: The amount in the smallest currecny unit (e.g. cents 100 cents to charge $1) that the Product Variant will cost.
@@ -121,7 +120,6 @@ export class MoneyAmount extends SoftDeletableEntity {
  *     example: pl_01G8X3CKJXCG5VXVZ87H9KC09W
  *   price_list:
  *     description: Available if the relation `price_list` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/PriceList"
  *   variant_id:
  *     description: The id of the Product Variant contained in the Line Item.
@@ -130,7 +128,6 @@ export class MoneyAmount extends SoftDeletableEntity {
  *     example: variant_01G1G5V2MRX2V3PVSR2WXYPFB6
  *   variant:
  *     description: The Product Variant contained in the Line Item. Available if the relation `variant` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ProductVariant"
  *   region_id:
  *     description: The region's ID
@@ -139,7 +136,6 @@ export class MoneyAmount extends SoftDeletableEntity {
  *     example: reg_01G1G5V26T9H8Y0M4JNE3YGA4G
  *   region:
  *     description: A region object. Available if the relation `region` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Region"
  *   created_at:
  *     description: The date with timezone at which the resource was created.

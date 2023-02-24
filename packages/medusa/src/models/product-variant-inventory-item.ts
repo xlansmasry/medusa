@@ -59,7 +59,6 @@ export class ProductVariantInventoryItem extends SoftDeletableEntity {
  *     type: string
  *   variant:
  *     description: A ProductVariant object. Available if the relation `variant` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ProductVariant"
  *   required_quantity:
  *     description: The quantity of an inventory item required for one quantity of the variant.

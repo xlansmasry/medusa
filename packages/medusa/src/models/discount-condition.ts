@@ -7,7 +7,6 @@ import {
   JoinTable,
   ManyToMany,
   ManyToOne,
-  OneToMany,
   Unique,
 } from "typeorm"
 
@@ -20,7 +19,6 @@ import { ProductTag } from "./product-tag"
 import { ProductType } from "./product-type"
 import { SoftDeletableEntity } from "../interfaces/models/soft-deletable-entity"
 import { generateEntityId } from "../utils/generate-entity-id"
-import { Discount } from "./discount"
 
 export enum DiscountConditionType {
   PRODUCTS = "products",
@@ -177,7 +175,6 @@ export class DiscountCondition extends SoftDeletableEntity {
  *     example: dru_01F0YESMVK96HVX7N419E3CJ7C
  *   discount_rule:
  *     description: Available if the relation `discount_rule` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/DiscountRule"
  *   products:
  *     description: products associated with this condition if type = products. Available if the relation `products` is expanded.

@@ -120,7 +120,6 @@ export class DraftOrder extends BaseEntity {
  *     example: cart_01G8ZH853Y6TFXWPG5EYE81X63
  *   cart:
  *     description: A cart object. Available if the relation `cart` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Cart"
  *   order_id:
  *     description: The ID of the order associated with the draft order.
@@ -129,7 +128,6 @@ export class DraftOrder extends BaseEntity {
  *     example: order_01G8TJSYT9M6AVS5N4EMNFS1EK
  *   order:
  *     description: An order object. Available if the relation `order` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Order"
  *   canceled_at:
  *     description: The date the draft order was canceled at.

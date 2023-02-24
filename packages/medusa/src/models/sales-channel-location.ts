@@ -51,7 +51,6 @@ export class SalesChannelLocation extends SoftDeletableEntity {
  *     type: string
  *   sales_channel:
  *     description: The sales channel the location is associated with. Available if the relation `sales_channel` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/SalesChannel"
  *   created_at:
  *     description: "The date with timezone at which the resource was created."

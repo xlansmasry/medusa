@@ -74,7 +74,6 @@ export class CustomShippingOption extends SoftDeletableEntity {
  *     example: so_01G1G5V27GYX4QXNARRQCW1N8T
  *   shipping_option:
  *     description: A shipping option object. Available if the relation `shipping_option` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/ShippingOption"
  *   cart_id:
  *     description: The ID of the Cart that the custom shipping option is attached to
@@ -83,7 +82,6 @@ export class CustomShippingOption extends SoftDeletableEntity {
  *     example: cart_01G8ZH853Y6TFXWPG5EYE81X63
  *   cart:
  *     description: A cart object. Available if the relation `cart` is expanded.
- *     nullable: true
  *     $ref: "#/components/schemas/Cart"
  *   created_at:
  *     description: The date with timezone at which the resource was created.
