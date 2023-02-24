@@ -146,6 +146,17 @@ export type StoreCustomersRes = {
  *     - customer
  *     - payments
  *     - region
+ *   totals:
+ *     - discount_total
+ *     - gift_card_tax_total
+ *     - gift_card_total
+ *     - paid_total
+ *     - refundable_amount
+ *     - refunded_total
+ *     - shipping_total
+ *     - subtotal
+ *     - tax_total
+ *     - total
  * required:
  *   - orders
  *   - count

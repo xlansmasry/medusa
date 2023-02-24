@@ -134,17 +134,28 @@ export const allowedStoreOrdersFields = [
  * x-extended-relations:
  *   model: Order
  *   defaults:
- *     - shipping_address
+ *     - customer
+ *     - discounts
+ *     - discounts.rule
  *     - fulfillments
  *     - fulfillments.tracking_links
  *     - items
  *     - items.variant
- *     - shipping_methods
- *     - discounts
- *     - discounts.rule
- *     - customer
  *     - payments
  *     - region
+ *     - shipping_address
+ *     - shipping_methods
+ *   totals:
+ *     - discount_total
+ *     - gift_card_tax_total
+ *     - gift_card_total
+ *     - paid_total
+ *     - refundable_amount
+ *     - refunded_total
+ *     - shipping_total
+ *     - subtotal
+ *     - tax_total
+ *     - total
  * properties:
  *   order:
  *     $ref: "#/components/schemas/Order"

@@ -44,6 +44,28 @@ export default (app) => {
 /**
  * @schema StoreOrderEditsRes
  * type: object
+ * x-extended-relations:
+ *   model: OrderEdit
+ *   defaults:
+ *     - changes
+ *     - changes.line_item
+ *     - changes.line_item.variant
+ *     - changes.original_line_item
+ *     - changes.original_line_item.variant
+ *     - items
+ *     - items.adjustments
+ *     - items.tax_lines
+ *     - items.variant
+ *     - payment_collection
+ *   totals:
+ *     - shipping_total
+ *     - discount_total
+ *     - tax_total
+ *     - total
+ *     - subtotal
+ *     - gift_card_total
+ *     - gift_card_tax_total
+ *     - difference_due
  * required:
  *   - order_edit
  * properties:

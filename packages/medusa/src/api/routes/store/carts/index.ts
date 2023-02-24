@@ -172,6 +172,18 @@ export const defaultStoreCartRelations = [
  *     - shipping_address
  *     - shipping_methods
  *     - shipping_methods.shipping_option
+ *   totals:
+ *     - discount_total
+ *     - gift_card_tax_total
+ *     - gift_card_total
+ *     - item_tax_total
+ *     - refundable_amount
+ *     - refunded_total
+ *     - shipping_tax_total
+ *     - shipping_total
+ *     - subtotal
+ *     - tax_total
+ *     - total
  * required:
  *   - cart
  * properties:
