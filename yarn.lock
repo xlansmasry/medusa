@@ -5220,7 +5220,7 @@ __metadata:
   dependencies:
     "@medusajs/medusa": "*"
     cross-env: ^5.2.1
-    jest: ^25.5.2
+    jest: ^25.5.4
     ts-jest: ^25.5.1
     typescript: ^4.4.4
   peerDependencies:
@@ -5235,7 +5235,7 @@ __metadata:
   dependencies:
     "@medusajs/medusa": "*"
     cross-env: ^5.2.1
-    jest: ^25.5.2
+    jest: ^25.5.4
     ts-jest: ^25.5.1
     typescript: ^4.4.4
   peerDependencies:
@@ -23445,7 +23445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^25.5.2, jest@npm:^25.5.4":
+"jest@npm:^25.5.4":
   version: 25.5.4
   resolution: "jest@npm:25.5.4"
   dependencies:
