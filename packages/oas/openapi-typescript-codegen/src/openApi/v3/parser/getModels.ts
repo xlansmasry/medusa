@@ -1,4 +1,5 @@
 import type { Model } from "../../../client/interfaces/Model"
+import { DeepRelation } from "../../../client/interfaces/Model"
 import type { OpenApi } from "../interfaces/OpenApi"
 import { getModel } from "./getModel"
 import { reservedWords } from "./getOperationParameterName"
@@ -22,7 +23,117 @@ export const getModels = (openApi: OpenApi): Model[] => {
           true,
           definitionType.base.replace(reservedWords, "_$1")
         )
+        // TODO REMOVE
+        if (definition["x-extended-relations"]) {
+          const defaults = definition["x-extended-relations"].defaults
+          const splitRelations = defaults.map((relation) => relation.split("."))
+          const level1 = [
+            ...new Set(splitRelations.map((relation) => relation[0])),
+          ]
+
+          const level2: Record<string, DeepRelation> = {}
+          const deepRelations = splitRelations.filter(
+            (relation) => relation.length == 2
+          )
+          for (const deepRelation of deepRelations) {
+            if (!Object.keys(level2).includes(deepRelation[0])) {
+              level2[deepRelation[0]] = {
+                name: deepRelation[0],
+                properties: [],
+              }
+            }
+            level2[deepRelation[0]].properties.push(deepRelation[1])
+          }
+
+          const relationModel = definition["x-extended-relations"].model
+          for (const prop of model.properties) {
+            if (prop.type === relationModel) {
+              prop.extensions = {
+                relations: level1,
+                deepRelations: Object.values(level2),
+              }
+            }
+          }
+        }
+
         models.push(model)
+      }
+    }
+  }
+
+  function getModelByName(name: string, models: Model[]): Model | void {
+    for (const model of models) {
+      if (model.name === name) {
+        return model
+      }
+    }
+  }
+
+  function getPropertyByName(name: string, model: Model): Model | void {
+    for (const property of model.properties) {
+      if (property.name === name) {
+        return property
+      }
+    }
+  }
+
+  for (const model of models) {
+    for (const prop of model.properties) {
+      if (prop.extensions && prop.extensions.deepRelations) {
+        // console.log([model.name, prop.type])
+        const childModel = getModelByName(prop.type, models)
+        if (childModel) {
+          // console.log([childModel.name, childModel.export])
+
+          if (childModel.export === "all-of") {
+            for (const property of childModel.properties) {
+              if (property.export === "reference") {
+                const tmpModel = getModelByName(property.type, models)
+                if (tmpModel) {
+                  // console.log("HAHAHAHAHA")
+                  for (const deepRelation of prop.extensions.deepRelations) {
+                    const childProp = getPropertyByName(
+                      deepRelation.name,
+                      tmpModel
+                    )
+                    if (childProp) {
+                      // console.log("lolololol")
+                      model.imports.push(childProp.type)
+                      deepRelation.base = childProp.type
+                      deepRelation.isArray = childProp.export === "array"
+                    }
+                  }
+                }
+              }
+              if (property.export === "interface") {
+                // console.log("SNANSNANSNA")
+                // console.log(property)
+                for (const deepRelation of prop.extensions.deepRelations) {
+                  const childProp = getPropertyByName(
+                    deepRelation.name,
+                    property
+                  )
+                  if (childProp) {
+                    // console.log("HELLLLLO")
+                    model.imports.push(childProp.type)
+                    deepRelation.base = childProp.type
+                    deepRelation.isArray = childProp.export === "array"
+                  }
+                }
+              }
+            }
+          }
+
+          for (const deepRelation of prop.extensions.deepRelations) {
+            const childProp = getPropertyByName(deepRelation.name, childModel)
+            if (childProp) {
+              model.imports.push(childProp.type)
+              deepRelation.base = childProp.type
+              deepRelation.isArray = childProp.export === "array"
+            }
+          }
+        }
+        // console.log(prop.extensions.deepRelations)
       }
     }
   }
@@ -45,6 +156,9 @@ export const getModels = (openApi: OpenApi): Model[] => {
       )
       models.push(model)
     }
+  }
+
+  for (const model in models) {
   }
 
   return models

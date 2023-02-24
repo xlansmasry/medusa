@@ -1,0 +1,23 @@
+{{#equals export 'reference'}}
+SetRequired<{{>base}},
+{{#each relations}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>
+{{#if deepRelations.length}}
+& {
+  {{#each deepRelations}}
+    {{{name}}}: {{#if isArray~}}Array<{{/if}}SetRequired<{{base}}, {{#each properties}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>{{#if isArray~}}>{{/if}}
+  {{/each}}
+}
+{{~/if~}}
+{{>isNullable}}
+{{~else equals export 'array'}}
+Array<SetRequired<{{>base}},
+  {{#each relations}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>
+{{#if deepRelations.length}}
+& {
+  {{#each deepRelations}}
+    {{{name}}}: {{#if isArray~}}Array<{{/if}}SetRequired<{{base}}, {{#each properties}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>{{#if isArray~}}>{{/if}}
+  {{/each}}
+}
+{{~/if~}}
+>{{>isNullable}}
+{{~/equals}}

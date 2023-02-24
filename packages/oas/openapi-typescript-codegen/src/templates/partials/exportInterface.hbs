@@ -8,7 +8,7 @@
 {{/if}}
  */
 {{/ifdef}}
-export type {{{name}}} = {
+export interface {{{name}}} {
 	{{#each properties}}
 	{{#ifdef description deprecated}}
 	/**
@@ -20,9 +20,17 @@ export type {{{name}}} = {
 	{{/if}}
 	 */
 	{{/ifdef}}
-	{{>isReadOnly}}{{{name}}}{{>isRequired}}: {{>type parent=../name}};
+  {{~#if extensions}}
+    {{~#if extensions.relations}}
+      {{>isReadOnly}}{{{name}}}{{>isRequired}}: {{>typeWithRelation relations=extensions.relations deepRelations=extensions.deepRelations}}
+    {{/if}}
+  {{/if}}
+  {{~#unless extensions}}
+	  {{>isReadOnly}}{{{name}}}{{>isRequired}}: {{>type parent=../name}};
+  {{~/unless}}
 	{{/each}}
 };
+
 {{#if enums}}
 {{#unless @root.useUnionTypes}}
 

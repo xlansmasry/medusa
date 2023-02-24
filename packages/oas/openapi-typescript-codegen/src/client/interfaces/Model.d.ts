@@ -1,6 +1,13 @@
 import type { Enum } from "./Enum"
 import type { Schema } from "./Schema"
 
+export type DeepRelation = {
+  name: string
+  properties: string[]
+  base?: string
+  isArray?: boolean
+}
+
 export interface Model extends Schema {
   name: string
   export:
@@ -24,4 +31,8 @@ export interface Model extends Schema {
   enum: Enum[]
   enums: Model[]
   properties: Model[]
+  extensions?: {
+    relations?: string[]
+    deepRelations?: DeepRelation[]
+  }
 }
