@@ -16,6 +16,12 @@ export default (app) => {
 /**
  * @schema StoreRegionsListRes
  * type: object
+ * x-extended-relations:
+ *   model: Region
+ *   defaults:
+ *     - countries
+ *     - payment_providers
+ *     - fulfillment_providers
  * required:
  *   - regions
  * properties:
@@ -31,6 +37,12 @@ export type StoreRegionsListRes = {
 /**
  * @schema StoreRegionsRes
  * type: object
+ * x-extended-relations:
+ *   model: Region
+ *   defaults:
+ *     - countries
+ *     - payment_providers
+ *     - fulfillment_providers
  * required:
  *   - region
  * properties:

@@ -42,6 +42,10 @@ export const allowedFields = [
  *   - count
  *   - offset
  *   - limit
+ * x-extended-relations:
+ *   model: ProductCollection
+ *   defaults:
+ *     - products
  * properties:
  *   collections:
  *      type: array

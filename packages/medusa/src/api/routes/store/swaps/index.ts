@@ -49,6 +49,19 @@ export const defaultStoreSwapFields: FindConfig<Swap>["select"] = [
 /**
  * @schema StoreSwapsRes
  * type: object
+ * x-extended-relations:
+ *   model: Swap
+ *   defaults:
+ *     - order
+ *     - additional_items
+ *     - additional_items.variant
+ *     - return_order
+ *     - return_order.shipping_method
+ *     - fulfillments
+ *     - payment
+ *     - shipping_address
+ *     - shipping_methods
+ *     - cart
  * required:
  *   - swap
  * properties:

@@ -1,4 +1,4 @@
-import { RequestHandler, Router } from "express"
+import { Router } from "express"
 import "reflect-metadata"
 
 import { Product } from "../../../.."
@@ -105,6 +105,18 @@ export * from "./search"
 /**
  * @schema StoreProductsRes
  * type: object
+ * x-extended-relations:
+ *   model: PricedProduct
+ *   defaults:
+ *     - variants
+ *     - variants.prices
+ *     - variants.options
+ *     - options
+ *     - options.values
+ *     - images
+ *     - tags
+ *     - collection
+ *     - type
  * required:
  *   - product
  * properties:
@@ -134,6 +146,18 @@ export type StorePostSearchRes = {
 /**
  * @schema StoreProductsListRes
  * type: object
+ * x-extended-relations:
+ *   model: PricedProduct
+ *   defaults:
+ *     - variants
+ *     - variants.prices
+ *     - variants.options
+ *     - options
+ *     - options.values
+ *     - images
+ *     - tags
+ *     - collection
+ *     - type
  * required:
  *   - products
  *   - count

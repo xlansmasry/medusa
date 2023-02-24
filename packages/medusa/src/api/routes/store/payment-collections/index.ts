@@ -71,9 +71,15 @@ export const defaultPaymentCollectionFields = [
 
 export const defaultPaymentCollectionRelations = ["region", "payment_sessions"]
 
+// TODO PATPICH load default relations on all endpoints referencing StorePaymentCollectionsRes
 /**
  * @schema StorePaymentCollectionsRes
  * type: object
+ * x-extended-relations:
+ *   model: PaymentCollection
+ *   defaults:
+ *     - region
+ *     - payment_sessions
  * required:
  *   - payment_collection
  * properties:

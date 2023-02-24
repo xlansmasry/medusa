@@ -131,6 +131,20 @@ export const allowedStoreOrdersFields = [
  * type: object
  * required:
  *   - order
+ * x-extended-relations:
+ *   model: Order
+ *   defaults:
+ *     - shipping_address
+ *     - fulfillments
+ *     - fulfillments.tracking_links
+ *     - items
+ *     - items.variant
+ *     - shipping_methods
+ *     - discounts
+ *     - discounts.rule
+ *     - customer
+ *     - payments
+ *     - region
  * properties:
  *   order:
  *     $ref: "#/components/schemas/Order"

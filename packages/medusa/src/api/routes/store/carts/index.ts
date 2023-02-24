@@ -1,5 +1,5 @@
 import "reflect-metadata"
-import { RequestHandler, Router } from "express"
+import { Router } from "express"
 
 import { Cart, Order, Swap } from "../../../../"
 import { FindParams } from "../../../../types/common"
@@ -154,6 +154,24 @@ export const defaultStoreCartRelations = [
 /**
  * @schema StoreCartsRes
  * type: object
+ * x-extended-relations:
+ *   model: Cart
+ *   defaults:
+ *     - billing_address
+ *     - discounts
+ *     - discounts.rule
+ *     - gift_cards
+ *     - items
+ *     - items.adjustments
+ *     - items.variant
+ *     - payment
+ *     - payment_sessions
+ *     - region
+ *     - region.countries
+ *     - region.payment_providers
+ *     - shipping_address
+ *     - shipping_methods
+ *     - shipping_methods.shipping_option
  * required:
  *   - cart
  * properties:
