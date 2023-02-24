@@ -1,7 +1,4 @@
-import {
-  StoreReturnReasonsListRes,
-  StoreReturnReasonsRes,
-} from "@medusajs/medusa"
+import { StoreReturnReasonsListRes, StoreReturnReasonsRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -19,13 +16,13 @@ export const useReturnReasons = (
     Response<StoreReturnReasonsListRes>,
     Error,
     ReturnType<ReturnReasonsQueryKey["lists"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     returnReasonsKey.lists(),
     () => client.returnReasons.list(),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -36,13 +33,13 @@ export const useReturnReason = (
     Response<StoreReturnReasonsRes>,
     Error,
     ReturnType<ReturnReasonsQueryKey["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     returnReasonsKey.detail(id),
     () => client.returnReasons.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

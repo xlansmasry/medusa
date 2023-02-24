@@ -2,13 +2,9 @@ import {
   AdminPostStockLocationsReq,
   AdminStockLocationsDeleteRes,
   AdminStockLocationsRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminStockLocationsKeys } from "./queries"
@@ -18,7 +14,7 @@ export const useAdminCreateStockLocation = (
     Response<AdminStockLocationsRes>,
     Error,
     AdminPostStockLocationsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -26,7 +22,7 @@ export const useAdminCreateStockLocation = (
   return useMutation(
     (payload: AdminPostStockLocationsReq) =>
       client.admin.stockLocations.create(payload),
-    buildOptions(queryClient, [adminStockLocationsKeys.lists()], options)
+    buildOptions(queryClient, [adminStockLocationsKeys.lists()], options),
   )
 }
 
@@ -36,7 +32,7 @@ export const useAdminUpdateStockLocation = (
     Response<AdminStockLocationsRes>,
     Error,
     AdminPostStockLocationsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -47,8 +43,8 @@ export const useAdminUpdateStockLocation = (
     buildOptions(
       queryClient,
       [adminStockLocationsKeys.lists(), adminStockLocationsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -58,7 +54,7 @@ export const useAdminDeleteStockLocation = (
     Response<AdminStockLocationsDeleteRes>,
     Error,
     void
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -68,7 +64,7 @@ export const useAdminDeleteStockLocation = (
     buildOptions(
       queryClient,
       [adminStockLocationsKeys.lists(), adminStockLocationsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }

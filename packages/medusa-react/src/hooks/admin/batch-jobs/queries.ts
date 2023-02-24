@@ -1,8 +1,4 @@
-import {
-  AdminBatchJobListRes,
-  AdminBatchJobRes,
-  AdminGetBatchParams,
-} from "@medusajs/medusa"
+import { AdminBatchJobListRes, AdminBatchJobRes, AdminGetBatchParams } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -21,13 +17,13 @@ export const useAdminBatchJobs = (
     Response<AdminBatchJobListRes>,
     Error,
     ReturnType<BatchJobsQueryKey["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminBatchJobsKeys.list(query),
     () => client.admin.batchJobs.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -38,13 +34,13 @@ export const useAdminBatchJob = (
     Response<AdminBatchJobRes>,
     Error,
     ReturnType<BatchJobsQueryKey["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminBatchJobsKeys.detail(id),
     () => client.admin.batchJobs.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

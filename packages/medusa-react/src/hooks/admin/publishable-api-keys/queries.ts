@@ -4,7 +4,7 @@ import {
   AdminSalesChannelsListRes,
   GetPublishableApiKeySalesChannelsParams,
   GetPublishableApiKeysParams,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 
@@ -17,7 +17,7 @@ const ADMIN_PUBLISHABLE_API_KEYS_QUERY_KEY =
 
 export const adminPublishableApiKeysKeys = {
   ...queryKeysFactory(ADMIN_PUBLISHABLE_API_KEYS_QUERY_KEY),
-  detailSalesChannels(id: string, query?: any) {
+  detailSalesChannels (id: string, query?: any) {
     return [
       ...this.detail(id),
       "sales_channels" as const,
@@ -35,13 +35,13 @@ export const useAdminPublishableApiKey = (
     Response<AdminPublishableApiKeysRes>,
     Error,
     ReturnType<PublishableApiKeyQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminPublishableApiKeysKeys.detail(id),
     () => client.admin.publishableApiKeys.retrieve(id, query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -52,13 +52,13 @@ export const useAdminPublishableApiKeys = (
     Response<AdminPublishableApiKeysListRes>,
     Error,
     ReturnType<PublishableApiKeyQueryKeys["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminPublishableApiKeysKeys.list(query),
     () => client.admin.publishableApiKeys.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -70,13 +70,13 @@ export const useAdminPublishableApiKeySalesChannels = (
     Response<AdminSalesChannelsListRes>,
     Error,
     ReturnType<PublishableApiKeyQueryKeys["detailSalesChannels"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminPublishableApiKeysKeys.detailSalesChannels(id, query),
     () => client.admin.publishableApiKeys.listSalesChannels(id, query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

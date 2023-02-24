@@ -15,7 +15,7 @@ import {
   AdminPostOrdersOrderSwapsReq,
   AdminPostOrdersOrderSwapsSwapFulfillmentsReq,
   AdminPostOrdersOrderSwapsSwapShipmentsReq,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { FindParams } from "@medusajs/medusa/dist/types/common"
 import qs from "qs"
 import { ResponsePromise } from "../../typings"

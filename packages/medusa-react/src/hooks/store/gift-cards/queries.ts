@@ -1,4 +1,4 @@
-import { StoreGiftCardsRes } from "@medusajs/medusa"
+import { StoreGiftCardsRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -17,13 +17,13 @@ export const useGiftCard = (
     Response<StoreGiftCardsRes>,
     Error,
     ReturnType<GiftCardQueryKey["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     giftCardKeys.detail(id),
     () => client.giftCards.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

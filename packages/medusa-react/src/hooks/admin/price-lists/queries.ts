@@ -4,7 +4,7 @@ import {
   AdminPriceListRes,
   AdminPriceListsListRes,
   AdminProductsListRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -15,7 +15,7 @@ const ADMIN_PRICE_LISTS_QUERY_KEY = `admin_price_lists` as const
 
 export const adminPriceListKeys = {
   ...queryKeysFactory(ADMIN_PRICE_LISTS_QUERY_KEY),
-  detailProducts(id: string, query?: any) {
+  detailProducts (id: string, query?: any) {
     return [
       ...this.detail(id),
       "products" as const,
@@ -32,13 +32,13 @@ export const useAdminPriceLists = (
     Response<AdminPriceListsListRes>,
     Error,
     ReturnType<PriceListQueryKeys["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminPriceListKeys.list(query),
     () => client.admin.priceLists.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -50,13 +50,13 @@ export const useAdminPriceListProducts = (
     Response<AdminProductsListRes>,
     Error,
     ReturnType<PriceListQueryKeys["detailProducts"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminPriceListKeys.detailProducts(id, query),
     () => client.admin.priceLists.listProducts(id, query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -67,13 +67,13 @@ export const useAdminPriceList = (
     Response<AdminPriceListRes>,
     Error,
     ReturnType<PriceListQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminPriceListKeys.detail(id),
     () => client.admin.priceLists.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

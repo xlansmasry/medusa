@@ -1,8 +1,4 @@
-import {
-  AdminCollectionsListRes,
-  AdminCollectionsRes,
-  AdminGetCollectionsParams,
-} from "@medusajs/medusa"
+import { AdminCollectionsListRes, AdminCollectionsRes, AdminGetCollectionsParams } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -21,13 +17,13 @@ export const useAdminCollections = (
     Response<AdminCollectionsListRes>,
     Error,
     ReturnType<CollectionsQueryKey["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminCollectionKeys.list(query),
     () => client.admin.collections.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -38,13 +34,13 @@ export const useAdminCollection = (
     Response<AdminCollectionsRes>,
     Error,
     ReturnType<CollectionsQueryKey["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminCollectionKeys.detail(id),
     () => client.admin.collections.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

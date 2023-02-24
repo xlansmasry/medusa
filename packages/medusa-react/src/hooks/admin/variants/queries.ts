@@ -2,7 +2,7 @@ import {
   AdminGetVariantsParams,
   AdminGetVariantsVariantInventoryRes,
   AdminVariantsListRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -21,13 +21,13 @@ export const useAdminVariants = (
     Response<AdminVariantsListRes>,
     Error,
     ReturnType<VariantQueryKeys["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminVariantKeys.list(query),
     () => client.admin.variants.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -38,13 +38,13 @@ export const useAdminVariantsInventory = (
     Response<AdminGetVariantsVariantInventoryRes>,
     Error,
     ReturnType<VariantQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminVariantKeys.detail(id),
     () => client.admin.variants.getInventory(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

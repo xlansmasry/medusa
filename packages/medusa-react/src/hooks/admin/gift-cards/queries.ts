@@ -1,8 +1,4 @@
-import {
-  AdminGetGiftCardsParams,
-  AdminGiftCardsListRes,
-  AdminGiftCardsRes,
-} from "@medusajs/medusa"
+import { AdminGetGiftCardsParams, AdminGiftCardsListRes, AdminGiftCardsRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -21,13 +17,13 @@ export const useAdminGiftCards = (
     Response<AdminGiftCardsListRes>,
     Error,
     ReturnType<GiftCardQueryKeys["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminGiftCardKeys.list(query),
     () => client.admin.giftCards.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -38,13 +34,13 @@ export const useAdminGiftCard = (
     Response<AdminGiftCardsRes>,
     Error,
     ReturnType<GiftCardQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminGiftCardKeys.detail(id),
     () => client.admin.giftCards.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

@@ -1,8 +1,4 @@
-import {
-  AdminPaymentProvidersList,
-  AdminStoresRes,
-  AdminTaxProvidersList,
-} from "@medusajs/medusa"
+import { AdminPaymentProvidersList, AdminStoresRes, AdminTaxProvidersList } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -20,13 +16,13 @@ export const useAdminStorePaymentProviders = (
     Response<AdminPaymentProvidersList>,
     Error,
     ReturnType<StoreQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminStoreKeys.detail("payment_providers"),
     () => client.admin.store.listPaymentProviders(),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -36,13 +32,13 @@ export const useAdminStoreTaxProviders = (
     Response<AdminTaxProvidersList>,
     Error,
     ReturnType<StoreQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminStoreKeys.detail("tax_providers"),
     () => client.admin.store.listTaxProviders(),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -52,13 +48,13 @@ export const useAdminStore = (
     Response<AdminStoresRes>,
     Error,
     ReturnType<StoreQueryKeys["details"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminStoreKeys.details(),
     () => client.admin.store.retrieve(),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

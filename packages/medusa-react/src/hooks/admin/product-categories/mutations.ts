@@ -1,8 +1,4 @@
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { Response } from "@medusajs/medusa-js"
 import {
   AdminDeleteProductCategoriesCategoryProductsBatchReq,
@@ -11,7 +7,7 @@ import {
   AdminPostProductCategoriesReq,
   AdminProductCategoriesCategoryDeleteRes,
   AdminProductCategoriesCategoryRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 
 import { useMedusa } from "../../../contexts"
 import { buildOptions } from "../../utils/buildOptions"
@@ -29,7 +25,7 @@ export const useAdminCreateProductCategory = (
     Response<AdminProductCategoriesCategoryRes>,
     Error,
     AdminPostProductCategoriesReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -37,7 +33,7 @@ export const useAdminCreateProductCategory = (
   return useMutation(
     (payload: AdminPostProductCategoriesReq) =>
       client.admin.productCategories.create(payload),
-    buildOptions(queryClient, [adminProductCategoryKeys.list()], options)
+    buildOptions(queryClient, [adminProductCategoryKeys.list()], options),
   )
 }
 
@@ -54,7 +50,7 @@ export const useAdminUpdateProductCategory = (
     Response<AdminProductCategoriesCategoryRes>,
     Error,
     AdminPostProductCategoriesCategoryReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -64,8 +60,8 @@ export const useAdminUpdateProductCategory = (
     buildOptions(
       queryClient,
       [adminProductCategoryKeys.lists(), adminProductCategoryKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -83,7 +79,7 @@ export const useAdminDeleteProductCategory = (
     Response<AdminProductCategoriesCategoryDeleteRes>,
     Error,
     void
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -92,8 +88,8 @@ export const useAdminDeleteProductCategory = (
     buildOptions(
       queryClient,
       [adminProductCategoryKeys.lists(), adminProductCategoryKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -112,7 +108,7 @@ export const useAdminAddProductsToCategory = (
     Response<AdminProductCategoriesCategoryRes>,
     Error,
     AdminPostProductCategoriesCategoryProductsBatchReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -127,8 +123,8 @@ export const useAdminAddProductsToCategory = (
         adminProductCategoryKeys.detail(id),
         adminProductKeys.list({ product_category_id: [id] }),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -146,7 +142,7 @@ export const useAdminDeleteProductsFromCategory = (
     Response<AdminProductCategoriesCategoryRes>,
     Error,
     AdminDeleteProductCategoriesCategoryProductsBatchReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -161,7 +157,7 @@ export const useAdminDeleteProductsFromCategory = (
         adminProductCategoryKeys.detail(id),
         adminProductKeys.list({ product_category_id: [id] }),
       ],
-      options
-    )
+      options,
+    ),
   )
 }

@@ -1,10 +1,6 @@
-import { AdminBatchJobRes, AdminPostBatchesReq } from "@medusajs/medusa"
+import { AdminBatchJobRes, AdminPostBatchesReq } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 
 import { useMedusa } from "../../../contexts"
 import { buildOptions } from "../../utils/buildOptions"
@@ -20,14 +16,14 @@ export const useAdminCreateBatchJob = (
     Response<AdminBatchJobRes>,
     Error,
     AdminPostBatchesReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
 
   return useMutation(
     (payload: AdminPostBatchesReq) => client.admin.batchJobs.create(payload),
-    buildOptions(queryClient, adminBatchJobsKeys.lists(), options)
+    buildOptions(queryClient, adminBatchJobsKeys.lists(), options),
   )
 }
 
@@ -39,7 +35,7 @@ export const useAdminCreateBatchJob = (
  */
 export const useAdminCancelBatchJob = (
   id: string,
-  options?: UseMutationOptions<Response<AdminBatchJobRes>, Error>
+  options?: UseMutationOptions<Response<AdminBatchJobRes>, Error>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -49,8 +45,8 @@ export const useAdminCancelBatchJob = (
     buildOptions(
       queryClient,
       [adminBatchJobsKeys.lists(), adminBatchJobsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -62,7 +58,7 @@ export const useAdminCancelBatchJob = (
  */
 export const useAdminConfirmBatchJob = (
   id: string,
-  options?: UseMutationOptions<Response<AdminBatchJobRes>, Error>
+  options?: UseMutationOptions<Response<AdminBatchJobRes>, Error>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -72,7 +68,7 @@ export const useAdminConfirmBatchJob = (
     buildOptions(
       queryClient,
       [adminBatchJobsKeys.lists(), adminBatchJobsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }

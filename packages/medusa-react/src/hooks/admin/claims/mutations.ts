@@ -4,13 +4,9 @@ import {
   AdminPostOrdersOrderClaimsClaimReq,
   AdminPostOrdersOrderClaimsClaimShipmentsReq,
   AdminPostOrdersOrderClaimsReq,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts/medusa"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminOrderKeys } from "./../orders/queries"
@@ -21,7 +17,7 @@ export const useAdminCreateClaim = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderClaimsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -29,7 +25,7 @@ export const useAdminCreateClaim = (
   return useMutation(
     (payload: AdminPostOrdersOrderClaimsReq) =>
       client.admin.orders.createClaim(orderId, payload),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
@@ -39,7 +35,7 @@ export const useAdminUpdateClaim = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderClaimsClaimReq & { claim_id: string }
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -50,20 +46,20 @@ export const useAdminUpdateClaim = (
       ...payload
     }: AdminPostOrdersOrderClaimsClaimReq & { claim_id: string }) =>
       client.admin.orders.updateClaim(orderId, claim_id, payload),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
 export const useAdminCancelClaim = (
   orderId: string,
-  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, string>
+  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, string>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
 
   return useMutation(
     (claimId: string) => client.admin.orders.cancelClaim(orderId, claimId),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
@@ -73,7 +69,7 @@ export const useAdminFulfillClaim = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderClaimsClaimFulfillmentsReq & { claim_id: string }
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -84,7 +80,7 @@ export const useAdminFulfillClaim = (
       ...payload
     }: AdminPostOrdersOrderClaimsClaimFulfillmentsReq & { claim_id: string }) =>
       client.admin.orders.fulfillClaim(orderId, claim_id, payload),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
@@ -94,7 +90,7 @@ export const useAdminCancelClaimFulfillment = (
     Response<AdminOrdersRes>,
     Error,
     { claim_id: string; fulfillment_id: string }
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -110,9 +106,9 @@ export const useAdminCancelClaimFulfillment = (
       client.admin.orders.cancelClaimFulfillment(
         orderId,
         claim_id,
-        fulfillment_id
+        fulfillment_id,
       ),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
@@ -122,7 +118,7 @@ export const useAdminCreateClaimShipment = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderClaimsClaimShipmentsReq & { claim_id: string }
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()

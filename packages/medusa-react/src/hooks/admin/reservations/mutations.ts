@@ -3,13 +3,9 @@ import {
   AdminPostReservationsReservationReq,
   AdminReservationsDeleteRes,
   AdminReservationsRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js/src"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminReservationsKeys } from "./queries"
@@ -19,7 +15,7 @@ export const useAdminCreateReservation = (
     Response<AdminReservationsRes>,
     Error,
     AdminPostReservationsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -27,7 +23,7 @@ export const useAdminCreateReservation = (
   return useMutation(
     (payload: AdminPostReservationsReq) =>
       client.admin.reservations.create(payload),
-    buildOptions(queryClient, [adminReservationsKeys.list()], options)
+    buildOptions(queryClient, [adminReservationsKeys.list()], options),
   )
 }
 
@@ -37,7 +33,7 @@ export const useAdminUpdateReservation = (
     Response<AdminReservationsRes>,
     Error,
     AdminPostReservationsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -48,8 +44,8 @@ export const useAdminUpdateReservation = (
     buildOptions(
       queryClient,
       [adminReservationsKeys.lists(), adminReservationsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -59,7 +55,7 @@ export const useAdminDeleteReservation = (
     Response<AdminReservationsDeleteRes>,
     Error,
     void
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -69,7 +65,7 @@ export const useAdminDeleteReservation = (
     buildOptions(
       queryClient,
       [adminReservationsKeys.lists(), adminReservationsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }

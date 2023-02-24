@@ -5,13 +5,9 @@ import {
   AdminPostSalesChannelsSalesChannelReq,
   AdminSalesChannelsDeleteRes,
   AdminSalesChannelsRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 
 import { useMedusa } from "../../../contexts"
 import { buildOptions } from "../../utils/buildOptions"
@@ -30,7 +26,7 @@ export const useAdminCreateSalesChannel = (
     Response<AdminSalesChannelsRes>,
     Error,
     AdminPostSalesChannelsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -38,7 +34,7 @@ export const useAdminCreateSalesChannel = (
   return useMutation(
     (payload: AdminPostSalesChannelsReq) =>
       client.admin.salesChannels.create(payload),
-    buildOptions(queryClient, [adminSalesChannelsKeys.list()], options)
+    buildOptions(queryClient, [adminSalesChannelsKeys.list()], options),
   )
 }
 
@@ -54,7 +50,7 @@ export const useAdminUpdateSalesChannel = (
     Response<AdminSalesChannelsRes>,
     Error,
     AdminPostSalesChannelsSalesChannelReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -64,8 +60,8 @@ export const useAdminUpdateSalesChannel = (
     buildOptions(
       queryClient,
       [adminSalesChannelsKeys.lists(), adminSalesChannelsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -82,7 +78,7 @@ export const useAdminDeleteSalesChannel = (
     Response<AdminSalesChannelsDeleteRes>,
     Error,
     void
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -91,8 +87,8 @@ export const useAdminDeleteSalesChannel = (
     buildOptions(
       queryClient,
       [adminSalesChannelsKeys.lists(), adminSalesChannelsKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -110,7 +106,7 @@ export const useAdminDeleteProductsFromSalesChannel = (
     Response<AdminSalesChannelsRes>,
     Error,
     AdminDeleteSalesChannelsChannelProductsBatchReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -125,8 +121,8 @@ export const useAdminDeleteProductsFromSalesChannel = (
         adminSalesChannelsKeys.detail(id),
         adminProductKeys.list({ sales_channel_id: [id] }),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -144,7 +140,7 @@ export const useAdminAddProductsToSalesChannel = (
     Response<AdminSalesChannelsRes>,
     Error,
     AdminPostSalesChannelsChannelProductsBatchReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -159,8 +155,8 @@ export const useAdminAddProductsToSalesChannel = (
         adminSalesChannelsKeys.detail(id),
         adminProductKeys.list({ sales_channel_id: [id] }),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -179,23 +175,23 @@ export const useAdminAddLocationToSalesChannel = (
       sales_channel_id: string
       location_id: string
     }
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
   return useMutation(({ sales_channel_id, location_id }) => {
-    return client.admin.salesChannels.addLocation(sales_channel_id, {
-      location_id,
-    })
-  }, buildOptions(
-    queryClient, 
-    [
-      adminSalesChannelsKeys.lists(), 
-      adminSalesChannelsKeys.details(), 
-      adminStockLocationsKeys.all
-    ], 
-    options
-    )
+      return client.admin.salesChannels.addLocation(sales_channel_id, {
+        location_id,
+      })
+    }, buildOptions(
+      queryClient,
+      [
+        adminSalesChannelsKeys.lists(),
+        adminSalesChannelsKeys.details(),
+        adminStockLocationsKeys.all,
+      ],
+      options,
+    ),
   )
 }
 
@@ -214,22 +210,22 @@ export const useAdminRemoveLocationFromSalesChannel = (
       sales_channel_id: string
       location_id: string
     }
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
   return useMutation(({ sales_channel_id, location_id }) => {
-    return client.admin.salesChannels.removeLocation(sales_channel_id, {
-      location_id,
-    })
-  }, buildOptions(
-    queryClient, 
-    [
-      adminSalesChannelsKeys.lists(), 
-      adminSalesChannelsKeys.details(), 
-      adminStockLocationsKeys.all
-    ], 
-    options
-    )
+      return client.admin.salesChannels.removeLocation(sales_channel_id, {
+        location_id,
+      })
+    }, buildOptions(
+      queryClient,
+      [
+        adminSalesChannelsKeys.lists(),
+        adminSalesChannelsKeys.details(),
+        adminStockLocationsKeys.all,
+      ],
+      options,
+    ),
   )
 }

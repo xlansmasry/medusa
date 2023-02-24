@@ -1,15 +1,15 @@
 import {
-  AdminGetInventoryItemsParams,
-  AdminInventoryItemsRes,
-  AdminPostInventoryItemsInventoryItemReq,
   AdminGetInventoryItemsItemLocationLevelsParams,
-  AdminPostInventoryItemsItemLocationLevelsLevelReq,
-  AdminInventoryItemsDeleteRes,
   AdminGetInventoryItemsItemParams,
+  AdminGetInventoryItemsParams,
+  AdminInventoryItemsDeleteRes,
   AdminInventoryItemsListWithVariantsAndLocationLevelsRes,
   AdminInventoryItemsLocationLevelsRes,
+  AdminInventoryItemsRes,
+  AdminPostInventoryItemsInventoryItemReq,
+  AdminPostInventoryItemsItemLocationLevelsLevelReq,
   AdminPostInventoryItemsItemLocationLevelsReq,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 import qs from "qs"

@@ -1,8 +1,8 @@
 import {
-  AdminGetVariantsVariantInventoryRes,
   AdminGetVariantsParams,
+  AdminGetVariantsVariantInventoryRes,
   AdminVariantsListRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import qs from "qs"
 import { ResponsePromise } from "../.."
 import BaseResource from "../base"

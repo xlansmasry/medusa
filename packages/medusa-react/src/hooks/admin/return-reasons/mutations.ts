@@ -2,13 +2,9 @@ import {
   AdminPostReturnReasonsReasonReq,
   AdminPostReturnReasonsReq,
   AdminReturnReasonsRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts/medusa"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminReturnReasonKeys } from "./queries"
@@ -18,7 +14,7 @@ export const useAdminCreateReturnReason = (
     Response<AdminReturnReasonsRes>,
     Error,
     AdminPostReturnReasonsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -26,7 +22,7 @@ export const useAdminCreateReturnReason = (
   return useMutation(
     (payload: AdminPostReturnReasonsReq) =>
       client.admin.returnReasons.create(payload),
-    buildOptions(queryClient, adminReturnReasonKeys.lists(), options)
+    buildOptions(queryClient, adminReturnReasonKeys.lists(), options),
   )
 }
 
@@ -36,7 +32,7 @@ export const useAdminUpdateReturnReason = (
     Response<AdminReturnReasonsRes>,
     Error,
     AdminPostReturnReasonsReasonReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -47,14 +43,14 @@ export const useAdminUpdateReturnReason = (
     buildOptions(
       queryClient,
       [adminReturnReasonKeys.detail(id), adminReturnReasonKeys.lists()],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminDeleteReturnReason = (
   id: string,
-  options?: UseMutationOptions
+  options?: UseMutationOptions,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -64,7 +60,7 @@ export const useAdminDeleteReturnReason = (
     buildOptions(
       queryClient,
       [adminReturnReasonKeys.detail(id), adminReturnReasonKeys.lists()],
-      options
-    )
+      options,
+    ),
   )
 }

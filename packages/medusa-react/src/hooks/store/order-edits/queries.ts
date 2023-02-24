@@ -1,4 +1,4 @@
-import { StoreOrderEditsRes } from "@medusajs/medusa"
+import { StoreOrderEditsRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -19,13 +19,13 @@ export const useOrderEdit = (
     Response<StoreOrderEditsRes>,
     Error,
     ReturnType<OrderQueryKey["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     orderEditQueryKeys.detail(id),
     () => client.orderEdits.retrieve(id),
-    options
+    options,
   )
 
   return { ...data, ...rest } as const

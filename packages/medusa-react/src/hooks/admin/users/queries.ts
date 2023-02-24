@@ -1,4 +1,4 @@
-import { AdminUserRes, AdminUsersListRes } from "@medusajs/medusa"
+import { AdminUserRes, AdminUsersListRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -16,13 +16,13 @@ export const useAdminUsers = (
     Response<AdminUsersListRes>,
     Error,
     ReturnType<UserQueryKeys["lists"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminUserKeys.lists(),
     () => client.admin.users.list(),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -33,13 +33,13 @@ export const useAdminUser = (
     Response<AdminUserRes>,
     Error,
     ReturnType<UserQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminUserKeys.detail(id),
     () => client.admin.users.retrieve(id),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

@@ -1,9 +1,9 @@
 import {
   AdminPaymentProvidersList,
-  AdminTaxProvidersList,
   AdminPostStoreReq,
   AdminStoresRes,
-} from "@medusajs/medusa"
+  AdminTaxProvidersList,
+} from "@medusajs/medusa-client-types"
 import { ResponsePromise } from "../../typings"
 import BaseResource from "../base"
 

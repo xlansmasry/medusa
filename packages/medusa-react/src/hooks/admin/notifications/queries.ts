@@ -1,7 +1,4 @@
-import {
-  AdminGetNotificationsParams,
-  AdminNotificationsListRes,
-} from "@medusajs/medusa"
+import { AdminGetNotificationsParams, AdminNotificationsListRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -11,7 +8,7 @@ import { queryKeysFactory } from "../../utils/index"
 const ADMIN_NOTIFICATIONS_QUERY_KEY = `admin_notifications` as const
 
 export const adminNotificationKeys = queryKeysFactory(
-  ADMIN_NOTIFICATIONS_QUERY_KEY
+  ADMIN_NOTIFICATIONS_QUERY_KEY,
 )
 
 type NotificationQueryKeys = typeof adminNotificationKeys
@@ -22,13 +19,13 @@ export const useAdminNotifications = (
     Response<AdminNotificationsListRes>,
     Error,
     ReturnType<NotificationQueryKeys["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminNotificationKeys.list(query),
     () => client.admin.notifications.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

@@ -3,13 +3,9 @@ import {
   AdminNotesRes,
   AdminPostNotesNoteReq,
   AdminPostNotesReq,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts/medusa"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminNoteKeys } from "./queries"
@@ -19,13 +15,13 @@ export const useAdminCreateNote = (
     Response<AdminNotesRes>,
     Error,
     AdminPostNotesReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
   return useMutation(
     (payload: AdminPostNotesReq) => client.admin.notes.create(payload),
-    buildOptions(queryClient, adminNoteKeys.lists(), options)
+    buildOptions(queryClient, adminNoteKeys.lists(), options),
   )
 }
 
@@ -35,7 +31,7 @@ export const useAdminUpdateNote = (
     Response<AdminNotesRes>,
     Error,
     AdminPostNotesNoteReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -45,14 +41,14 @@ export const useAdminUpdateNote = (
     buildOptions(
       queryClient,
       [adminNoteKeys.detail(id), adminNoteKeys.lists()],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminDeleteNote = (
   id: string,
-  options?: UseMutationOptions<Response<AdminNotesDeleteRes>, Error, void>
+  options?: UseMutationOptions<Response<AdminNotesDeleteRes>, Error, void>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -62,7 +58,7 @@ export const useAdminDeleteNote = (
     buildOptions(
       queryClient,
       [adminNoteKeys.detail(id), adminNoteKeys.lists()],
-      options
-    )
+      options,
+    ),
   )
 }

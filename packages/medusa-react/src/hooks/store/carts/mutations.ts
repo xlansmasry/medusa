@@ -6,7 +6,7 @@ import {
   StorePostCartsCartPaymentSessionUpdateReq,
   StorePostCartsCartReq,
   StorePostCartsCartShippingMethodReq,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { useMutation, UseMutationOptions } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts/medusa"
 
@@ -15,29 +15,29 @@ export const useCreateCart = (
     StoreCartsRes,
     Error,
     StorePostCartReq | undefined
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     (data?: StorePostCartReq | undefined) => client.carts.create(data),
-    options
+    options,
   )
 }
 
 export const useUpdateCart = (
   cartId: string,
-  options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartReq>
+  options?: UseMutationOptions<StoreCartsRes, Error, StorePostCartsCartReq>,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     (data: StorePostCartsCartReq) => client.carts.update(cartId, data),
-    options
+    options,
   )
 }
 
 export const useCompleteCart = (
   cartId: string,
-  options?: UseMutationOptions<StoreCompleteCartRes, Error>
+  options?: UseMutationOptions<StoreCompleteCartRes, Error>,
 ) => {
   const { client } = useMedusa()
   return useMutation(() => client.carts.complete(cartId), options)
@@ -45,7 +45,7 @@ export const useCompleteCart = (
 
 export const useCreatePaymentSession = (
   cartId: string,
-  options?: UseMutationOptions<StoreCartsRes, Error>
+  options?: UseMutationOptions<StoreCartsRes, Error>,
 ) => {
   const { client } = useMedusa()
   return useMutation(() => client.carts.createPaymentSessions(cartId), options)
@@ -57,13 +57,13 @@ export const useUpdatePaymentSession = (
     StoreCartsRes,
     Error,
     { provider_id: string } & StorePostCartsCartPaymentSessionUpdateReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     ({ data, provider_id }) =>
       client.carts.updatePaymentSession(cartId, provider_id, { data }),
-    options
+    options,
   )
 }
 
@@ -77,13 +77,13 @@ export const useRefreshPaymentSession = (
     StoreCartsRes,
     Error,
     RefreshPaymentSessionMutationData
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     ({ provider_id }: RefreshPaymentSessionMutationData) =>
       client.carts.refreshPaymentSession(cartId, provider_id),
-    options
+    options,
   )
 }
 
@@ -95,13 +95,13 @@ export const useSetPaymentSession = (
     StoreCartsRes,
     Error,
     SetPaymentSessionMutationData
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     (data: StorePostCartsCartPaymentSessionReq) =>
       client.carts.setPaymentSession(cartId, data),
-    options
+    options,
   )
 }
 
@@ -111,13 +111,13 @@ export const useAddShippingMethodToCart = (
     StoreCartsRes,
     Error,
     StorePostCartsCartShippingMethodReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     (data: StorePostCartsCartShippingMethodReq) =>
       client.carts.addShippingMethod(cartId, data),
-    options
+    options,
   )
 }
 
@@ -131,18 +131,18 @@ export const useDeletePaymentSession = (
     StoreCartsRes,
     Error,
     DeletePaymentSessionMutationData
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   return useMutation(
     ({ provider_id }: DeletePaymentSessionMutationData) =>
       client.carts.deletePaymentSession(cartId, provider_id),
-    options
+    options,
   )
 }
 
 export const useStartCheckout = (
-  options?: UseMutationOptions<StoreCartsRes["cart"], Error, StorePostCartReq>
+  options?: UseMutationOptions<StoreCartsRes["cart"], Error, StorePostCartReq>,
 ) => {
   const { client } = useMedusa()
   const mutation = useMutation(async (data?: StorePostCartReq) => {

@@ -2,7 +2,7 @@ import {
   AdminCreateUserRequest,
   AdminPostInvitesReq,
   AdminUpdateUserRequest,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 
 export interface HTTPResponse {
   status: number

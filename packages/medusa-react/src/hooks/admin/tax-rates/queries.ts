@@ -1,8 +1,4 @@
-import {
-  AdminGetTaxRatesParams,
-  AdminTaxRatesListRes,
-  AdminTaxRatesRes,
-} from "@medusajs/medusa"
+import { AdminGetTaxRatesParams, AdminTaxRatesListRes, AdminTaxRatesRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -21,13 +17,13 @@ export const useAdminTaxRates = (
     Response<AdminTaxRatesListRes>,
     Error,
     ReturnType<TaxRateQueryKeys["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminTaxRateKeys.list(query),
     () => client.admin.taxRates.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -39,13 +35,13 @@ export const useAdminTaxRate = (
     Response<AdminTaxRatesRes>,
     Error,
     ReturnType<TaxRateQueryKeys["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     adminTaxRateKeys.detail(id),
     () => client.admin.taxRates.retrieve(id, query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }

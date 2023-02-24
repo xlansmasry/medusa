@@ -6,13 +6,9 @@ import {
   AdminPostOrdersOrderReturnsReq,
   AdminPostOrdersOrderShipmentReq,
   AdminPostOrdersOrderShippingMethodsReq,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts/medusa"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminOrderKeys } from "./queries"
@@ -23,7 +19,7 @@ export const useAdminUpdateOrder = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -34,14 +30,14 @@ export const useAdminUpdateOrder = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminCancelOrder = (
   id: string,
-  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>
+  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -51,14 +47,14 @@ export const useAdminCancelOrder = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminCompleteOrder = (
   id: string,
-  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>
+  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -68,14 +64,14 @@ export const useAdminCompleteOrder = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminCapturePayment = (
   id: string,
-  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>
+  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -85,8 +81,8 @@ export const useAdminCapturePayment = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -96,7 +92,7 @@ export const useAdminRefundPayment = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderRefundsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -107,8 +103,8 @@ export const useAdminRefundPayment = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -118,7 +114,7 @@ export const useAdminCreateFulfillment = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderFulfillmentsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -129,14 +125,14 @@ export const useAdminCreateFulfillment = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(orderId)],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminCancelFulfillment = (
   orderId: string,
-  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, string>
+  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, string>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -147,8 +143,8 @@ export const useAdminCancelFulfillment = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(orderId)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -158,7 +154,7 @@ export const useAdminCreateShipment = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderShipmentReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -166,7 +162,7 @@ export const useAdminCreateShipment = (
   return useMutation(
     (payload: AdminPostOrdersOrderShipmentReq) =>
       client.admin.orders.createShipment(orderId, payload),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
@@ -176,7 +172,7 @@ export const useAdminRequestReturn = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderReturnsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -184,7 +180,7 @@ export const useAdminRequestReturn = (
   return useMutation(
     (payload: AdminPostOrdersOrderReturnsReq) =>
       client.admin.orders.requestReturn(orderId, payload),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
@@ -194,7 +190,7 @@ export const useAdminAddShippingMethod = (
     Response<AdminOrdersRes>,
     Error,
     AdminPostOrdersOrderShippingMethodsReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -202,13 +198,13 @@ export const useAdminAddShippingMethod = (
   return useMutation(
     (payload: AdminPostOrdersOrderShippingMethodsReq) =>
       client.admin.orders.addShippingMethod(orderId, payload),
-    buildOptions(queryClient, adminOrderKeys.detail(orderId), options)
+    buildOptions(queryClient, adminOrderKeys.detail(orderId), options),
   )
 }
 
 export const useAdminArchiveOrder = (
   id: string,
-  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>
+  options?: UseMutationOptions<Response<AdminOrdersRes>, Error, void>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -218,7 +214,7 @@ export const useAdminArchiveOrder = (
     buildOptions(
       queryClient,
       [adminOrderKeys.lists(), adminOrderKeys.detail(id)],
-      options
-    )
+      options,
+    ),
   )
 }

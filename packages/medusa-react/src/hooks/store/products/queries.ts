@@ -1,8 +1,4 @@
-import {
-  StoreGetProductsParams,
-  StoreProductsListRes,
-  StoreProductsRes,
-} from "@medusajs/medusa"
+import { StoreGetProductsParams, StoreProductsListRes, StoreProductsRes } from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
 import { useQuery } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts"
@@ -23,13 +19,13 @@ export const useProducts = (
     Response<StoreProductsListRes>,
     Error,
     ReturnType<ProductQueryKey["list"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     productKeys.list(query),
     () => client.products.list(query),
-    options
+    options,
   )
   return { ...data, ...rest } as const
 }
@@ -40,13 +36,13 @@ export const useProduct = (
     Response<StoreProductsRes>,
     Error,
     ReturnType<ProductQueryKey["detail"]>
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const { data, ...rest } = useQuery(
     productKeys.detail(id),
     () => client.products.retrieve(id),
-    options
+    options,
   )
 
   return { ...data, ...rest } as const

@@ -8,13 +8,9 @@ import {
   AdminPriceListDeleteRes,
   AdminPriceListDeleteVariantPricesRes,
   AdminPriceListRes,
-} from "@medusajs/medusa"
+} from "@medusajs/medusa-client-types"
 import { Response } from "@medusajs/medusa-js"
-import {
-  useMutation,
-  UseMutationOptions,
-  useQueryClient,
-} from "@tanstack/react-query"
+import { useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query"
 import { useMedusa } from "../../../contexts/medusa"
 import { buildOptions } from "../../utils/buildOptions"
 import { adminProductKeys } from "../products"
@@ -26,14 +22,14 @@ export const useAdminCreatePriceList = (
     Response<AdminPriceListRes>,
     Error,
     AdminPostPriceListsPriceListReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
   return useMutation(
     (payload: AdminPostPriceListsPriceListReq) =>
       client.admin.priceLists.create(payload),
-    buildOptions(queryClient, adminPriceListKeys.lists(), options)
+    buildOptions(queryClient, adminPriceListKeys.lists(), options),
   )
 }
 
@@ -43,7 +39,7 @@ export const useAdminUpdatePriceList = (
     Response<AdminPriceListRes>,
     Error,
     AdminPostPriceListsPriceListPriceListReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -58,14 +54,14 @@ export const useAdminUpdatePriceList = (
         adminPriceListKeys.lists(),
         adminPriceListKeys.detailProducts(id),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
 
 export const useAdminDeletePriceList = (
   id: string,
-  options?: UseMutationOptions<Response<AdminPriceListDeleteRes>, Error, void>
+  options?: UseMutationOptions<Response<AdminPriceListDeleteRes>, Error, void>,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -75,8 +71,8 @@ export const useAdminDeletePriceList = (
     buildOptions(
       queryClient,
       [adminPriceListKeys.detail(id), adminPriceListKeys.lists()],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -86,7 +82,7 @@ export const useAdminCreatePriceListPrices = (
     Response<AdminPriceListRes>,
     Error,
     AdminPostPriceListPricesPricesReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -96,8 +92,8 @@ export const useAdminCreatePriceListPrices = (
     buildOptions(
       queryClient,
       [adminPriceListKeys.lists(), adminPriceListKeys.detailProducts(id)],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -107,7 +103,7 @@ export const useAdminDeletePriceListPrices = (
     Response<AdminPriceListDeleteBatchRes>,
     Error,
     AdminDeletePriceListPricesPricesReq
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -122,8 +118,8 @@ export const useAdminDeletePriceListPrices = (
         adminPriceListKeys.lists(),
         adminPriceListKeys.detailProducts(id),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -133,7 +129,7 @@ export const useAdminDeletePriceListProductPrices = (
   options?: UseMutationOptions<
     Response<AdminPriceListDeleteProductPricesRes>,
     Error
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -147,8 +143,8 @@ export const useAdminDeletePriceListProductPrices = (
         adminPriceListKeys.lists(),
         adminProductKeys.detail(productId),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
 
@@ -158,7 +154,7 @@ export const useAdminDeletePriceListVariantPrices = (
   options?: UseMutationOptions<
     Response<AdminPriceListDeleteVariantPricesRes>,
     Error
-  >
+  >,
 ) => {
   const { client } = useMedusa()
   const queryClient = useQueryClient()
@@ -172,7 +168,7 @@ export const useAdminDeletePriceListVariantPrices = (
         adminPriceListKeys.lists(),
         adminVariantKeys.detail(variantId),
       ],
-      options
-    )
+      options,
+    ),
   )
 }
