@@ -1,6 +1,8 @@
 {{#equals export 'reference'}}
-SetRequired<{{>base}},
-{{#each relations}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>
+{{#if deepRelations.length}}Omit<
+{{~/if~}}SetRequired<{{>base}},
+{{#each relations}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>{{#if deepRelations.length}}
+, {{#each deepRelations}}"{{{name}}}"{{#unless @last}} | {{/unless}}{{/each}}>{{~/if~}}
 {{#if deepRelations.length}}
 & {
   {{#each deepRelations}}
@@ -10,8 +12,10 @@ SetRequired<{{>base}},
 {{~/if~}}
 {{>isNullable}}
 {{~else equals export 'array'}}
-Array<SetRequired<{{>base}},
-  {{#each relations}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>
+Array<{{#if deepRelations.length}}Omit<
+{{~/if~}}SetRequired<{{>base}},
+{{#each relations}}"{{{this}}}"{{#unless @last}} | {{/unless}}{{/each}}>{{#if deepRelations.length}}
+, {{#each deepRelations}}"{{{name}}}"{{#unless @last}} | {{/unless}}{{/each}}>{{~/if~}}
 {{#if deepRelations.length}}
 & {
   {{#each deepRelations}}

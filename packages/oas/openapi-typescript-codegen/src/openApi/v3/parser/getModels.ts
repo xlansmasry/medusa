@@ -25,7 +25,8 @@ export const getModels = (openApi: OpenApi): Model[] => {
         )
         // TODO REMOVE
         if (definition["x-extended-relations"]) {
-          const defaults = definition["x-extended-relations"].defaults
+          const defaults = definition["x-extended-relations"].defaults ?? []
+          const totals = definition["x-extended-relations"].totals ?? []
           const splitRelations = defaults.map((relation) => relation.split("."))
           const level1 = [
             ...new Set(splitRelations.map((relation) => relation[0])),
@@ -49,7 +50,7 @@ export const getModels = (openApi: OpenApi): Model[] => {
           for (const prop of model.properties) {
             if (prop.type === relationModel) {
               prop.extensions = {
-                relations: level1,
+                relations: [...level1, ...totals],
                 deepRelations: Object.values(level2),
               }
             }
